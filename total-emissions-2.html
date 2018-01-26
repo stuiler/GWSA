@@ -1,1 +1,171 @@
-gwsa 
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 215
+            },
+            title: {
+                text: 'MA GHG Emissions and BAU Projectins for Major Sectors 1990-2020',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: ['1990', '', '', '', '', '1995', '', '', '', '', '2000', '', '', '', '', '2005', '', '', '', '', '2010', '', '', '', '', '2015', '', '', '', '', '2020'] 
+            },
+            yAxis: {
+                title: {
+                    text: 'Million Metric Tons of CO2 equivalent'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+			enabled: true,
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y +'CO2';
+                }
+            },
+           plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                    enableMouseTracking: true
+                }
+            }
+			
+			
+			,
+            series: [
+			
+			
+			<!--- Begin Transportation --> 
+			{
+                name: 'Transportation',
+                data: [28.91, 27.62, 27.42, 27.86, 28.05, 28.46, 29.75, 30.16, 30.12, 30.94, 32.04, 31.60, 31.72, 31.50, 33.41, 33.90, 32.97, 33.53, 33.56, 32.15, 32.39, 32.54]
+            }, {
+                name: 'Projected Transportation',
+                data: [{x: 14, y: 33.41},{x: 15, y: 33.90},{x: 16, y: 32.72},{x: 17, y: 33.15}, {x: 18, y: 33.98}, {x: 19, y: 34.25}, {x: 20, y: 34.53}, {x: 21, y: 34.81}, {x: 22, y: 35.09}, {x: 23, y: 35.37}, {x: 24, y: 35.66}, {x: 25, y: 35.94}, {x: 26, y: 36.23}, {x: 27, y: 36.53}, {x: 28, y: 36.82}, {x: 29, y: 37.12}, {x: 30, y: 37.42}],
+                dashStyle: 'dash'
+            },
+			
+			<!-- End Transportation -->
+			
+			<!--- Begin Electricity Consumption --> 
+			
+			{
+                name: 'Electricity',
+                data: [27.78, 27.67, 26.42, 24.65, 24.63, 23.70, 23.28, 27.49, 28.04, 26.54, 25.28, 26.21, 26.14, 27.91, 27.04, 27.95, 24.25, 25.92, 22.87, 20.28, 20.84, 17.39]
+            }, {
+                name: 'Projected Electricity',
+                data: [{x: 14, y: 27.04},{x: 15, y: 27.95},{x: 16, y: 24.30},{x: 17, y: 26.39}, {x: 18, y: 23.71}, {x: 19, y: 26.20}, {x: 20, y: 25.97}, {x: 21, y: 25.75}, {x: 22, y: 25.52}, {x: 23, y: 25.30}, {x: 24, y: 25.08}, {x: 25, y: 24.86}, {x: 26, y: 24.64}, {x: 27, y: 24.42}, {x: 28, y: 24.21}, {x: 29, y: 24.00}, {x: 30, y: 23.78}],
+                dashStyle: 'dash'
+            },
+				<!--- End Electricity Consumption -->
+				
+				<!--- Begin Residential Consumption --> 
+			
+			{
+                name: 'Residential',
+                data: [15.01, 14.23, 16.31, 16.43, 16.27, 14.69, 14.50, 14.33, 13.15, 13.96, 15.53, 15.87, 15.88, 16.18, 14.96, 14.80, 12.78, 13.46, 14.23, 13.87, 13.61, 13.66]
+            }, {
+                name: 'Projected Residential',
+                data: [{x: 14, y: 14.96},{x: 15, y: 14.80},{x: 16, y: 12.75},{x: 17, y: 13.46}, {x: 18, y: 14.24}, {x: 19, y: 14.15}, {x: 20, y: 14.06}, {x: 21, y: 13.97}, {x: 22, y: 13.88}, {x: 23, y: 13.79}, {x: 24, y: 13.70}, {x: 25, y: 13.61}, {x: 26, y: 13.52}, {x: 27, y: 13.44}, {x: 28, y: 13.35}, {x: 29, y: 13.27}, {x: 30, y: 13.18}],
+                dashStyle: 'dash'
+            },
+				<!--- End Residential Consumption -->
+				
+				<!--- Begin Commercial Consumption --> 
+			
+			{
+                name: 'Commercial',
+                data: [8.40, 9.18, 8.93, 7.96, 8.85, 8.94, 9.02, 9.41, 8.02, 6.14, 6.69, 5.67, 5.86, 7.00, 6.56, 6.59, 4.99, 5.31, 5.66, 5.79, 6.72, 6.34]
+            }, {
+                name: 'Projected Commercial',
+                data: [{x: 14, y: 6.56},{x: 15, y: 6.59},{x: 16, y: 4.90},{x: 17, y: 5.25}, {x: 18, y: 5.26}, {x: 19, y: 5.12}, {x: 20, y: 4.98}, {x: 21, y: 4.84}, {x: 22, y: 4.71}, {x: 23, y: 4.58}, {x: 24, y: 4.46}, {x: 25, y: 4.34}, {x: 26, y: 4.22}, {x: 27, y: 4.10}, {x: 28, y: 3.99}, {x: 29, y: 3.88}, {x: 30, y: 3.78}],
+                dashStyle: 'dash'
+            },
+				<!--- End Commercial Consumption -->
+				
+				<!--- Begin Industrial (Fuel) Consumption --> 
+			
+			{
+                name: 'Industrial (Fuel)',
+                data: [5.96, 5.41, 7.19, 7.35, 6.38, 5.61, 6.06, 6.22, 6.13, 6.73, 6.46, 7.10, 7.06, 4.79, 4.58, 4.76, 4.53, 4.43, 4.10, 3.25, 3.71, 4.38]
+            }, {
+                name: 'Projected Industrial (Fuel)',
+                data: [{x: 14, y: 4.58},{x: 15, y: 4.76},{x: 16, y: 4.64},{x: 17, y: 4.61}, {x: 18, y: 5.04}, {x: 19, y: 4.97}, {x: 20, y: 4.89}, {x: 21, y: 4.82}, {x: 22, y: 4.75}, {x: 23, y: 4.68}, {x: 24, y: 4.61}, {x: 25, y: 4.54}, {x: 26, y: 4.47}, {x: 27, y: 4.40}, {x: 28, y: 4.34}, {x: 29, y: 4.27}, {x: 30, y: 4.21}],
+                dashStyle: 'dash'
+            },
+				<!--- End Industrial (Fuel) Consumption -->
+				
+				<!--- Begin Other Gases, Except Electric Sector Consumption --> 
+			
+			{
+                name: 'Other Gases, Except Electric Sector',
+                data: [3.69, 3.74, 3.83, 3.52, 3.79, 3.79, 3.77, 3.53, 3.66, 3.55, 3.48, 3.38, 3.00, 3.10, 2.99, 2.89, 2.93, 2.81, 2.70, 2.57, 2.48]
+            }, {
+                name: 'Projected Other Gases, Except Electric Sector',
+                data: [{x: 14, y: 2.99},{x: 15, y: 2.89},{x: 16, y: 2.73},{x: 17, y: 2.87}, {x: 18, y: 2.82}, {x: 19, y: 2.77}, {x: 20, y: 2.72}, {x: 21, y: 2.67}, {x: 22, y: 2.62}, {x: 23, y: 2.57}, {x: 24, y: 2.52}, {x: 25, y: 2.48}, {x: 26, y: 2.43}, {x: 27, y: 2.39}, {x: 28, y: 2.35}, {x: 29, y: 2.31}, {x: 30, y: 2.27}],
+                dashStyle: 'dash'
+            },
+				<!--- End Other Gases, Except Electric Sector Consumption -->
+			
+			
+			<!--- Begin Industrial Processes Consumption --> 
+			
+			{
+                name: 'Industrial Processes',
+                data: [0.07, 0.67, 0.70, 0.78, 0.93, 1.29, 1.50, 1.74, 1.92, 2.12, 2.29, 2.39, 2.56, 2.69, 2.84, 2.96, 3.05, 3.09, 3.17, 3.02, 3.18]
+            }, {
+                name: 'Projected Industrial Processes',
+                data: [{x: 14, y: 2.84},{x: 15, y: 2.96},{x: 16, y: 3.04},{x: 17, y: 3.29}, {x: 18, y: 3.50}, {x: 19, y: 3.73}, {x: 20, y: 3.97}, {x: 21, y: 4.23}, {x: 22, y: 4.50}, {x: 23, y: 4.79}, {x: 24, y: 5.10}, {x: 25, y: 5.42}, {x: 26, y: 5.77}, {x: 27, y: 6.15}, {x: 28, y: 6.54}, {x: 29, y: 6.96}, {x: 30, y: 7.41}],
+                dashStyle: 'dash'
+            },
+				<!--- End Industrial Processes Consumption -->
+				
+				<!--- Begin Waste Consumption --> 
+			
+			{
+                name: 'Waste',
+                data: [3.58, 3.73, 3.65, 3.76, 3.67, 3.64, 3.64, 2.95, 2.94, 2.74, 2.55, 2.56, 2.61, 2.51, 2.56, 2.77, 2.29, 2.28, 2.40, 2.93, 2.88]
+            }, {
+                name: 'Projected Waste',
+                data: [{x: 14, y: 2.56},{x: 15, y: 2.77},{x: 16, y: 2.77},{x: 17, y: 2.36}, {x: 18, y: 2.32}, {x: 19, y: 2.28}, {x: 20, y: 2.25}, {x: 21, y: 2.21}, {x: 22, y: 2.18}, {x: 23, y: 2.14}, {x: 24, y: 2.11}, {x: 25, y: 2.07}, {x: 26, y: 2.04}, {x: 27, y: 2.01}, {x: 28, y: 1.98}, {x: 29, y: 1.95}, {x: 30, y: 1.92}],
+                dashStyle: 'dash'
+            }
+				<!--- End Waste Consumption -->
+			
+			  ]
+        });
+    });  
+    
+});
+
+    
+
+		</script>
+	</head>
+	<body>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div  id="container" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
