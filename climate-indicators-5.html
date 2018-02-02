@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Public Transit Ridership in Massachusetts</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+	$(function () {
+         $('#container10').highcharts({
+            chart: {
+                type: 'area'
+            },
+             credits: {
+                 enabled: false
+             },
+            title: {
+                text: 'Public Transit Ridership in Massachusetts'
+            },
+            subtitle: {
+                text: 'Source: National Transit Database, Annual Unlinked Passenger Trips'
+            },
+            xAxis: {
+                labels: {
+                    formatter: function() {
+                        return Highcharts.numberFormat((this.value),0,'',''); // clean, unformatted number for year
+                    }
+                },
+                tickmarkPlacement: 'on',
+                title: {
+                    enabled: false
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Transit Trips in Millions'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value/1000000;
+                    }
+                }
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' '
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 1991,
+                    stacking: 'normal',
+                    lineColor: '#666666',
+                    lineWidth: 1,
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666'
+                    }
+                }
+            },
+            series: [{
+                name: 'Other MA Transit Trips',
+                data: [21144578,	28053785,	30135184,	29858045,	26854653,	32228749,	22089906,	22152436,	21041491,	21780314,	20724207,	28342557,	26529342,	25888086,	24475779,	24540021,	25361110,	27562289,	28479261,	26880371,	27610604,	29389533,	29447604,	30435536],
+            marker: {
+                enabled: false
+            },
+                color: '#8bbc21'
+            }, {
+                name: 'MBTA Transit Trips',
+                data: [297431367,	323686321,	336933977,	398827013,	321885416,	313170580,	319705436,	339735330,	354965815,	354860333,	364337295,	388975811,	388605206,	389910299,	394850846,	380260730,	357578991,	370718600,	367247601,	356060335,	380694311,	401616849,	395253978,	409248438],
+            marker: {
+                enabled: false
+            },
+                color: '#2f7ed8'}]
+        });
+    });
+    
+
+			
+			
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container10" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
