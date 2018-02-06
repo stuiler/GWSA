@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Estimated Savings in 2020 from Adopted Federal Appliance and Product Standards</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+$(function() {
+
+  $('#container2').highcharts({
+    chart: {
+      zoomType: 'xy'
+    },
+    title: {
+      text: 'Fossil Fuel Heating for Buildings and Processes Sector'
+    },
+    subtitle: {
+      text: 'Source: MassDEP and EEA'
+    },
+    credits: {
+      enabled: false
+    },
+    xAxis: {
+      labels: {
+        formatter: function() {
+          return this.value; // clean, unformatted number for year
+        }
+      }
+    },
+    yAxis: {
+      min: 15.0,
+      max: 40.0,
+      title: {
+        text: 'GHG Emissions (MMTCO2e)'
+      }
+    },
+    //tooltip: {
+    //crosshairs: false,
+    //shared: false,
+    // formatter: function() {
+    //  return '<b>' + this.series.name + '</b><br/>' +
+    //   this.x + ': ' + this.y + ' MMTCO2e';
+    //}
+    //},
+    legend: {
+      layout: 'vertical'
+    },
+    series: [{
+      name: 'Currently reported GHG emissions reduction <br>(attributed to energy efficiency and renewable thermal policies)',
+      type: 'polygon',
+      data: [
+        [2009, 23.12],
+        [2010, 24.10],
+        [2011, 23.99],
+        [2012, 20.57],
+        [2013, 22.87],
+        [2014, 24.56],
+        [2014, 25.11],
+        [2013, 23.27],
+        [2012, 20.83],
+        [2011, 24.13],
+        [2010, 24.17],
+        [2009, 23.12]
+      ],
+      lineWidth: 4,
+      color: Highcharts.Color(Highcharts.getOptions().colors[6]).setOpacity(1).get(),
+      enableMouseTracking: false
+
+    }, {
+      name: 'MA GHG emissions (from MassDEP state-wide inventory)',
+      type: 'line',
+      marker: {
+        enabled: false
+      },
+      lineWidth: 4,
+      color: '#8bbe3f',
+      data: [
+        [1990, 29.43],
+        [1991, 28.84],
+        [1992, 32.51],
+        [1993, 31.61],
+        [1994, 31.60],
+        [1995, 29.34],
+        [1996, 29.25],
+        [1997, 29.55],
+        [1998, 26.79],
+        [1999, 26.38],
+        [2000, 28.33],
+        [2001, 28.76],
+        [2002, 28.63],
+        [2003, 28.08],
+        [2004, 25.94],
+        [2005, 26.20],
+        [2006, 22.39],
+        [2007, 23.40],
+        [2008, 24.13],
+        [2009, 23.12],
+        [2010, 24.10],
+        [2011, 23.99],
+        [2012, 20.57],
+        [2013, 22.87],
+        [2014, 24.56]
+      ]
+
+    }, {
+      type: 'scatter',
+      name: 'Projected emissions in 2020 assuming full policy implementation',
+      marker: {
+        enabled: true,
+        symbol: 'square',
+        lineWidth: 1,
+        lineColor: '#0d233a'
+      },
+      color: '#8bbc21',
+      data: [
+        [2020, 20.61]
+      ]
+    }],
+    tooltip: {
+      headerFormat: '<b>{series.name}</b><br>',
+      pointFormat: '{point.x}: {point.y} MMTCO2e'
+    }
+  });
+});
+
+			
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container2" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
+   
