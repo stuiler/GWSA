@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Committed GHG Emissions Reduction by MEPA Reviewed Projects</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+	
+$(function() {
+  $('#container1').highcharts({
+    chart: {
+      type: 'area'
+    },
+    title: {
+      text: 'Committed GHG Emissions Reduction by MEPA Reviewed Projects'
+    },
+    subtitle: {
+      text: 'Source: EEA, MEPA Program'
+    },
+    credits: {
+      enabled: false
+    },
+    yAxis: {
+      title: {
+        text: 'Emissions Reductions (MMTCO2e)'
+      },
+      reversed: true
+    },
+    xAxis: {
+      title: {
+        text: 'Calendar Year'
+      },
+      categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015']
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' MMTCO2e'
+    },
+    plotOptions: {
+      area: {
+        marker: {
+          radius: 0
+        }
+      }
+    },
+    series: [{
+      data: [0.012704, 0.040070, 0.066167, 0.074245, 0.146805, 0.164364, 0.189334]
+    }]
+  });
+});
+
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container1" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
