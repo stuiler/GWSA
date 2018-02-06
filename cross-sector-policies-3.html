@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Reported GHG Emissions Reduction from Green Communities</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+	
+$(function() {
+  $('#container3').highcharts({
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Reported GHG Emissions Reduction from Green Communities'
+    },
+    subtitle: {
+      text: 'Source: DOER, Green Communities Division'
+    },
+    credits: {
+      enabled: false
+    },
+    yAxis: {
+      title: {
+        text: 'Emissions Reductions (MMTCO2e)'
+      },
+      reversed: true
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' MMTCO2e'
+    },
+    xAxis: {
+      title: {
+        text: 'Calendar Year'
+      },
+      categories: ['2009', '2010', '2011', '2012','2013','2014']
+    },
+    plotOptions: {
+      area: {
+        marker: {
+          radius: 0
+        }
+      }
+    },
+    series: [{
+      name: 'Reductions in GHG emissions',
+      data: [0.055,	0.072,	0.125,	0.159,	0.125,	0.344]
+    }]
+  });
+});
+
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container3" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
