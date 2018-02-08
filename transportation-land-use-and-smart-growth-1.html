@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>GHG Emissions of Vehicle Fleets Placed in MA</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+
+$(function() {
+  $('#container1').highcharts({
+    chart: {
+      type: 'column'
+    },
+    credits: {
+      enabled: false
+    },
+    title: {
+      text: 'GHG Emissions of Vehicle Fleets Placed in MA'
+    },
+    subtitle: {
+      text: '(Industry average, Fleet average) <br> Source: MassDEP, LEV Program'
+    },
+    xAxis: {
+      categories: ['2009', '2010', '2011', '2012', '2013'],
+      title: {text: 'Model Year'}
+    },
+    yAxis: { //primary axis
+      title: {
+        text: ' '
+      },
+      labels: {
+        format: '{value} gCO2e/mi',
+        style: {
+          color: Highcharts.getOptions().colors[1]
+        }
+      },
+      min: 100,
+      max: 400
+    },
+    legend: {
+      align: 'center',
+      verticalAlign: 'bottom',
+      floating: false,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+      borderColor: '#CCC',
+      borderWidth: 0,
+      shadow: false
+    },
+    tooltip: {
+      headerFormat: '<b>{point.x}</b><br/>',
+      pointFormat: '{series.name}: <b>{point.y}' + ' gCO2e/mi' + '<br>Total: <b>{point.stackTotal}' + ' gCO2e/mi'
+    },
+    plotOptions: {
+      column: {
+        dataLabels: {
+          enabled: false,
+          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+          style: {
+            textShadow: '0 0 3px black'
+          }
+        }
+      }
+    },
+    series: [{
+      name: 'Passenger cars & light-duty trucks (<3,751 lb)',
+      data: [269, 260, 267, 255, 247]
+    }, {
+      name: 'Light-duty trucks (3,751-10,000 lb)',
+      data: [376, 371, 363, 355, 347],
+      yAxis: 0
+    }]
+  });
+});
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container1" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
