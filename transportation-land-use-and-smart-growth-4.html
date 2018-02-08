@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>State Funding for Electric Vehicles and Charging Stations</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+
+
+$(function() {
+  $('#container4').highcharts({
+    chart: {
+      zoomType: 'xy'
+    },
+    credits: {
+      enabled: false
+    },
+    title: {
+      text: 'Single-Family and Multi-Unit Construction against Vehicle Miles Traveled Per Capita'
+    },
+    subtitle: {
+      text: 'Source: U.S. Census (2016), MAPC (2016)'
+    },
+    xAxis: {
+      categories: ['2009', '2010', '2011', '2012', '2013', '2014', '2015']
+    },
+    yAxis: [{ // Primary yAxis
+      labels: {
+        format: '{value}'
+      },
+      title: {
+        text: 'New Housing Units Permits'
+      }
+    }, { // Secondary yAxis
+      title: {
+        text: 'Vehicle Miles Traveled (VMTs)',
+        style: {
+          color: '#c42525'
+        }
+      },
+      labels: {
+        format: '{value}',
+        style: {
+          color: '#c42525'
+        }
+      },
+      opposite: true,
+      min: 0
+    }],
+    legend: {
+      align: 'center',
+      x: 0,
+      verticalAlign: 'bottom',
+      y: 0,
+      floating: false,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+      borderColor: '#CCC',
+      borderWidth: 1,
+      shadow: false
+    },
+    tooltip: {
+      formatter: function() {
+        return '<b>' + this.x + ' </b><br/>' +
+          this.series.name + ': ' + this.y + ' <br/>';
+      }
+    },
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+        dataLabels: {
+          enabled: true,
+          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+          formatter: function() {
+            return this.y + '%';
+          }
+        }
+      }
+    },
+    series: [{
+      name: 'Statewide - Single Family',
+      data: [5839, 4765, 5920, 7100, 7330, 6922],
+      color: '#000000',
+      marker: {
+        radius: 0
+      },
+      visible: true
+    }, {
+      name: 'Statewide - Five or More Unit',
+      data: [2687, 2483, 4599, 6755, 6477, 9724],
+      color: '#FF3300',
+      marker: {
+        radius: 0
+      },
+      visible: true
+    }, {
+      name: 'Statewide - Avg. Daily VMT',
+      data: [16.6, 18.7, 18.7, 18.5, 18.6, null],
+      color: '#330099',
+      marker: {
+        radius: 0
+      },
+      visible: true,
+      yAxis: 1
+    }, {
+      name: 'Barnstable County - Single Family',
+      data: [381, 323, 410, 425, 530, 550],
+      color: '#FFCC99',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Barnstable County - Five or More Unit',
+      data: [34, 47, 130, 108, 91, 6],
+      color: '#CC9900',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Barnstable County - Avg. Daily VMT',
+      data: [22.1, 25.2, 25.1, 25.0, 24.9, null],
+      color: '#CC99CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Berkshire County - Single Family',
+      data: [125, 95, 89, 99, 137, 106],
+      color: '#FF9999',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Berkshire County - Five or More Unit',
+      data: [0, 21, 0, 0, 40, 108],
+      color: '#CC6600',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Berkshire County - Avg. Daily VMT',
+      data: [17.5, 19.7, 19.9, 20.0, 20.5, null],
+      color: '#CC66CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Bristol County - Single Family',
+      data: [478, 392, 479, 653, 645, 641],
+      color: '#FF6699',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Bristol County - Five or More Unit',
+      data: [7, 51, 138, 333, 121, 153],
+      color: '#CC3300',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Bristol County - Avg. Daily VMT',
+      data: [18.6, 21.3, 21.3, 21.4, 21.6, null],
+      color: '#CC33CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Dukes County - Single Family',
+      data: [113, 89, 90, 106, 114, 106],
+      color: '#FF3399',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Dukes County - Five or More Unit',
+      data: [0, 0, 0, 0, 0, 13],
+      color: '#CC0000',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Dukes County - Avg. Daily VMT',
+      data: [20.6, 23.1, 22.8, 22.0, 22.0, null],
+      color: '#CC00CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Essex County - Single Family',
+      data: [553, 435, 645, 747, 736, 615],
+      color: '#FF0099',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Essex County - Five or More Unit',
+      data: [272, 243, 469, 145, 523, 414],
+      color: '#660000',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Essex County - Avg. Daily VMT',
+      data: [16.9, 19.0, 19.0, 18.8, 18.9, null],
+      color: '#6600CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Franklin County - Single Family',
+      data: [58, 49, 40, 53, 60, 51],
+      color: '#990099',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Franklin County - Five or More Unit',
+      data: [0, 0, 0, 0, 0, 58],
+      color: '#663300',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Franklin County - Avg. Daily VMT',
+      data: [22.6, 25.6, 25.7, 25.8, 26.2, null],
+      color: '#6633CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Hampden County - Single Family',
+      data: [275, 256, 282, 245, 256, 236],
+      color: '#993399',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Hampden County - Five or More Unit',
+      data: [10, 22, 20, 25, 20, 0],
+      color: '#666600',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Hampden County - Avg. Daily VMT',
+      data: [15.7, 17.8, 18.0, 17.9, 18.0, null],
+      color: '#6666CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Hampshire County - Single Family',
+      data: [232, 118, 144, 163, 164, 169],
+      color: '#996699',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Hampshire County - Five or More Unit',
+      data: [12, 18, 27, 16, 21, 15],
+      color: '#669900',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Hampshire County - Avg. Daily VMT',
+      data: [17.4, 19.6, 19.6, 19.5, 19.6, null],
+      color: '#6699CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Middlesex County - Single Family',
+      data: [1336, 1158, 1416, 1558, 1610, 1617],
+      color: '#999999',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Middlesex County - Five or More Unit',
+      data: [666, 582, 1417, 2775, 1543, 2794],
+      color: '#66CC00',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Middlesex County - Avg. Daily VMT',
+      data: [15.9, 17.7, 17.5, 17.2, 17.2, null],
+      color: '#66CCCC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Nantucket County - Single Family',
+      data: [53, 54, 58, 109, 149, 140],
+      color: '#99CC99',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Nantucket County - Five or More Unit',
+      data: [0, 0, 0, 0, 0, 0],
+      color: '#66FF00',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Nantucket County - Avg. Daily VMT',
+      data: [15.2, 17.6, 17.3, 16.9, 16.6, null],
+      color: '#66FFCC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Norfolk County - Single Family',
+      data: [519, 476, 639, 815, 758, 719],
+      color: '#99FF99',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Norfolk County - Five or More Unit',
+      data: [811, 505, 387, 335, 800, 675],
+      color: '#00FF00',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Norfolk County - Avg. Daily VMT',
+      data: [16.7, 18.7, 18.6, 18.4, 18.4, null],
+      color: '#00FFCC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Plymouth County - Single Family',
+      data: [622, 623, 707, 925, 949, 852],
+      color: '#33FF99',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Plymouth County - Five or More Unit',
+      data: [301, 146, 131, 166, 197, 244],
+      color: '#00CC00',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Plymouth County - Avg. Daily VMT',
+      data: [20.5, 23.4, 23.3, 23.2, 23.3, null],
+      color: '#00CCCC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Suffolk County - Single Family',
+      data: [27, 35, 54, 38, 54, 55],
+      color: '#33CC99',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Suffolk County - Five or More Unit',
+      data: [376, 800, 1727, 2744, 3063, 5048],
+      color: '#009900',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Suffolk County - Avg. Daily VMT',
+      data: [8.2, 9.2, 9.1, 8.9, 8.9, null],
+      color: '#0099CC',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, {
+      name: 'Worcester County - Single Family',
+      data: [1067, 662, 867, 1164, 1168, 1065],
+      color: '#0000CC',
+      marker: {
+        radius: 0
+      },
+      visible: false
+    }, {
+      name: 'Worcester County - Five or More Unit',
+      data: [198, 48, 153, 108, 58, 196],
+      color: '#006600',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+    }, {
+      name: 'Worcester County - Avg. Daily VMT',
+      data: [19.6, 22.4, 22.4, 22.4, 22.7, null],
+      color: '#E07B91',
+      marker: {
+        radius: 0
+      },
+      visible: false,
+      yAxis: 1
+    }, ]
+  });
+});
+
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container4" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
+   
