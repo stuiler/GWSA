@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>State Funding for Electric Vehicles and Charging Stations</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+
+
+$(function() {
+  $('#container2').highcharts({
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'State Funding for Electric Vehicles and Charging Stations'
+    },
+    subtitle: {
+      text: 'Source: MassDEP and DOER'
+    },
+    credits: {enabled: false},
+    xAxis: {
+      categories: [
+        '2011',
+        '2012',
+        '2013',
+        '2014',
+        '2015'
+      ],
+      crosshair: true
+    },
+    yAxis: [{//primary axis
+      title: {
+        text: 'Units subsidized by state grants/rebates'
+      }
+    }, {//secondary axis
+      title: {
+        text: ' '
+      },
+      labels: {
+        format: '${value}',
+      style: {
+          color: Highcharts.getOptions().colors[3],
+        }},  
+      opposite: true
+    }],
+    legend: {
+    layout: 'vertical'
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y} </b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0,
+        stacking: 'normal'
+      }
+    },
+    series: [{
+      name: 'Battery Electric Vehicles (BEVs) purchased',
+      data: [1, null, null, 358, 731],
+      stack: 'vehicles'
+    }, {
+      name: 'Plug-In Hybrid Electric Vehicles (PHEVs) purchased',
+      data: [null, null, null, 212, 349],
+      stack: 'vehicles'
+      }, {
+      name: 'Charging stations installed',
+      data: [null, null, null, 37, 227],
+      stack: 'stations'
+    },{
+    name: 'Total state funding awarded ($)',
+    data: [15368, 13444, 27963, 251766, 1342118],
+    yAxis: 1,
+    type: 'spline'
+    }]
+  });
+});
+
+
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container2" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
+   
