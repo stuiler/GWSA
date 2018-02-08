@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Electricity Use Sector</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+$(function() {
+
+  $('#container2').highcharts({
+    chart: {
+      zoomType: 'xy'
+    },
+    title: {
+      text: 'Electricity Use Sector'
+    },
+    subtitle: {
+      text: 'Source: MassDEP and EEA'
+    },
+    credits: {
+      enabled: false
+    },
+    xAxis: {
+      labels: {
+        formatter: function() {
+          return this.value; // clean, unformatted number for year
+        }
+      }
+    },
+    yAxis: {
+    	min: 10,
+      max: 35,
+      title: {
+        text: 'GHG Emissions (MMTCO2e)'
+      }
+    },
+    //tooltip: {
+    //crosshairs: false,
+    //shared: false,
+    // formatter: function() {
+    //  return '<b>' + this.series.name + '</b><br/>' +
+    //   this.x + ': ' + this.y + ' MMTCO2e';
+    //}
+    //},
+    legend: {
+      layout: 'vertical'
+    },
+    series: [{
+      name: 'Currently reported GHG emissions reduction <br>(attributed to power plant retirements, energy efficiency, and renewable energy policies)',
+      type: 'polygon',
+      data: [
+        [2009, 22.15],
+        [2010, 22.92],
+        [2011, 18.12],
+        [2012, 15.77],
+        [2013, 16.30],
+        [2014, 14.79],
+        [2014, 18.66],
+        [2013, 18.86],
+        [2012, 17.55],
+        [2011, 19.39],
+        [2010, 23.22],
+        [2009, 22.15]
+      ],
+      lineWidth: 4,
+      color: Highcharts.Color(Highcharts.getOptions().colors[6]).setOpacity(1).get(),
+      enableMouseTracking: false
+
+    }, {
+      name: 'MA GHG emissions (from MassDEP state-wide inventory)',
+      type: 'line',
+      marker: {
+        enabled: false
+      },
+      lineWidth: 4,
+      color: '#65b1ce',
+      data: [
+        [1990, 28.19],
+        [1991, 28.26],
+        [1992, 27.08],
+        [1993, 25.49],
+        [1994, 25.59],
+        [1995, 24.72],
+        [1996, 24.47],
+        [1997, 28.57],
+        [1998, 28.97],
+        [1999, 27.47],
+        [2000, 26.66],
+        [2001, 26.16],
+        [2002, 27.71],
+        [2003, 29.21],
+        [2004, 28.11],
+        [2005, 29.50],
+        [2006, 25.77],
+        [2007, 27.41],
+        [2008, 24.73],
+        [2009, 22.15],
+        [2010, 22.92],
+        [2011, 18.12],
+        [2012, 15.77],
+        [2013, 16.31],
+        [2014, 14.79]
+      ]
+
+    }, {
+      type: 'scatter',
+      name: 'Projected emissions in 2020 assuming full policy implementation',
+      marker: {
+        enabled: true,
+        symbol: 'diamond',
+        lineWidth: 1,
+        lineColor: '#0d233a'
+      },
+      color: '#65b1ce',
+      data: [
+        [2020, 13.39]
+      ]
+    }],
+    tooltip: {
+      headerFormat: '<b>{series.name}</b><br>',
+      pointFormat: '{point.x}: {point.y} MMTCO2e'
+    }
+  });
+});
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container2" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
