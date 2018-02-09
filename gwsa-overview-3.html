@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Renewable Energy Generation in Massachusett</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+	
+
+
+$(function() {
+
+  var colors = Highcharts.getOptions().colors,
+    categories = ['Buildings', 'Energy', 'Transportation', 'Non-Energy'],
+    data = [{
+      y: 9.0,
+      color: '#8bbe3f',
+      drilldown: {
+        name: 'Buildings',
+        categories: ['Energy Efficiency', 'Building Codes', 'Appliance/Product Stnds.', 'Renewable Technologies', 'Tree Planting & Retention', 'Commercial/Industrial Heating Oil', 'Building Energy Rating/Labeling'],
+        data: [5.4, 1.5, 1.0, 1.0, 0, 0, 0],
+        color: '#8bbe3f'
+      }
+    }, {
+      y: 7.8,
+      color: '#65b1ce',
+      drilldown: {
+        name: 'Energy',
+        categories: ['Clean Energy Imports', 'Power Plant Retirements', 'Renewable Portfolio Stnd.', 'Clean Energy Stnd.', 'Regional Greenhouse Gas Initiative', 'Grid Modernization'],
+        data: [4.0, 2.7, 1.1, 0, 0, 0],
+        color: '#65b1ce'
+      }
+    }, {
+      y: 5.7,
+      color: '#7F5DA4',
+      drilldown: {
+        name: 'Transportation',
+        categories: ['Light-duty Vehicle Stnds.', 'GreenDOT', 'Med./Heavy-duty Vehicle Stnds.', 'Smart Growth', 'Clean/Electric Vehicle Incentives', 'Renewable/Clean Fuel Stnds.'],
+        data: [3.7, 1.0, 0.4, 0.4, 0.1, 0.1],
+        color: '#7F5DA4'
+      }
+    }, {
+      y: 2.5,
+      color: '#FE9A2E',
+      drilldown: {
+        name: 'Non-Energy',
+        categories: ['Natural Gas Leaks Reduction', 'SF6 Reduction', 'Plastics Reduction', 'Stationary Refrigerants'],
+        data: [1.7, 0.4, 0.3, 0.1],
+        color: '#FE9A2E'
+      }
+    }],
+    sectorData = [],
+    policyData = [],
+    i,
+    j,
+    dataLen = data.length,
+    drillDataLen,
+    brightness;
+
+
+  // Build the data arrays
+  for (i = 0; i < dataLen; i += 1) {
+
+    // add sector data
+    sectorData.push({
+      name: categories[i],
+      y: data[i].y,
+      color: data[i].color
+    });
+
+    // add policy data
+    drillDataLen = data[i].drilldown.data.length;
+    for (j = 0; j < drillDataLen; j += 1) {
+      brightness = 0.2 - (j / drillDataLen) / 5;
+      policyData.push({
+        name: data[i].drilldown.categories[j],
+        y: data[i].drilldown.data[j],
+        color: Highcharts.Color(data[i].color).brighten(brightness).get()
+      });
+    }
+  }
+
+  // Create the chart
+  $('#container3').highcharts({
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: '2020 GHG Emission Reduction Estimates'
+    },
+    subtitle: {
+      text: 'Million metric tons of CO<sub>2e</sub> (MMTCO<sub>2e</sub>) reduction compared to 1990 baseline level',
+	  useHTML : true,
+    },
+    credits: {
+      enabled: false
+    },
+    yAxis: {
+      title: {
+        text: 'TEST'
+      }
+    },
+    plotOptions: {
+      pie: {
+        shadow: false,
+        center: ['50%', '50%']
+      }
+    },
+    tooltip: {
+      valueSuffix: ' MMTCO2e'
+    },
+    series: [{
+      name: 'Sector',
+      data: sectorData,
+      size: '60%',
+      dataLabels: {
+        formatter: function() {
+          return this.y > 2 ? this.point.name : null;
+        },
+        color: '#ffffff',
+        distance: -30
+      }
+    }, {
+      name: 'Policy',
+      data: policyData,
+      size: '80%',
+      innerSize: '60%',
+      dataLabels: {
+        formatter: function() {
+          // display only if larger than 0.1
+          return this.y > 0.1 ? '<b>' + this.point.name : null;
+        }
+      }
+    }]
+  });
+});
+
+
+
+			
+			
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container3" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
+    
