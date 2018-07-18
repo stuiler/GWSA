@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>2014 MA & US GHG Emissions by Sector</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+	
+$(function () {
+        $('#container3').highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+            		useHTML:true,
+                text: 'MA CO<sub>2</sub> Emissions by Fuel Combusted' 
+            },
+            subtitle: {
+                text: '(86% of Total GHG Emissions)'
+            },
+            xAxis: {
+                categories: ['1990', '2000', '2010', '2015']
+            },
+            yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}'
+            },
+            title: {
+            		useHTML:true,
+                text: 'Percentage of CO<sub>2</sub> Emissions'
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'CO2 Emissions (MMT)',
+                style: {
+                    color: '#c42525'
+                }
+            },
+            labels: {
+                format: '{value}',
+                style: {
+                    color: '#c42525'
+                }
+            },
+            opposite: true,
+            min: 0,
+            max: 100
+        }],
+            legend: {
+                align: 'center',
+                x: 0,
+                verticalAlign: 'bottom',
+                y: 0,
+                floating: false,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +' </b><br/>'+
+                        this.series.name +': '+ this.y +' <br/>';
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        formatter: function () {
+                        return this.y + '%';
+                    }
+                    }
+                }
+            },
+            series: [{
+                name: 'Coal',
+                data: [13, 13, 11, 3],
+                color: '#f28f43'
+            }, {
+                name: 'Natural Gas',
+                data: [17, 23, 33, 36],
+                color: '#2f7ed8' 
+            }, {
+                name: 'Petroleum',
+                data: [70, 65, 56, 60],
+                color: '#492970' 
+            }, {
+                name: 'Total CO2 Emissions (million metric tons)',
+                color: '#c42525',
+                type: 'line',
+                data: [83.0, 82.0, 71.8, 65.3],
+                yAxis: 1
+            }]
+        });
+    }); 
+
+			
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container3" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
