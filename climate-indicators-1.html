@@ -48,6 +48,43 @@
                     return '<b>'+ this.x +'</b><br/>'+
                         this.series.name +': '+ Highcharts.numberFormat((this.y),0) + ' GWh' + '<br/>'+
                         'Total: '+ Highcharts.numberFormat((this.point.stackTotal),0) + ' GWh';
+.highcharts({
+            chart: {
+                type: 'column'
+            },
+            credits:{
+                enabled: false
+            },
+            title: {
+                text: 'Renewable Energy Generation in Massachusetts'
+            },
+            subtitle: {
+                text: 'Source: RPS/APS Annual Compliance Report, DOER'
+            },
+            xAxis: {
+                categories: ['2003','2004','2005','2006','2007','2008','2009','2010','2011', '2012','2013','2014','2015']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Gigawatt hour (GWh)'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    },
+                    formatter: function() {
+                        return Highcharts.numberFormat((this.total),0);
+                }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                        this.series.name +': '+ Highcharts.numberFormat((this.y),0) + ' GWh' + '<br/>'+
+                        'Total: '+ Highcharts.numberFormat((this.point.stackTotal),0) + ' GWh';
                 }
             },
             plotOptions: {
@@ -61,31 +98,31 @@
             },
             series: [{
                 name: 'Anaerobic Digester',
-                data: [24.571,	20.662,	23.710,	27.115,	27.511,	26.328,	28.204,	24.292,	25.115,	27.373,	22.853,	9.868],
+                data: [24.571,	20.662,	23.710,	27.115,	27.511,	26.328,	28.204,	24.292,	25.115,	27.373,	29.662,38.782,43.837],
                 color: '#0d233a'
             }, {
                 name: 'Other Biomass',
-                data: [108.106,	146.228,	285.289,	395.856,	782.315,	743.882,	571.757,	584.505,	392.629,	394.754,	357.575,	375.109],
+                data: [108.106,	146.228,	285.289,	395.856,	782.315,	743.882,	571.757,	584.505,	392.629,	394.754,	357.575,	375.109,320.801],
                 color: '#8bbc21'
             }, {
                 name: 'Hydro',
-                data: [0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	47.490,	80.823,	105.484,	105.326,	113.936,	129.790],
+                data: [0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	47.490,	80.823,	105.484,	105.326,	113.936,	129.790,129.810],
                 color: '#2f7ed8'
             },{
                 name: 'Landfill Gas',
-                data: [171.025,	230.553,	335.151,	449.633,	486.558,	660.937,	690.851,	736.298,	848.229,	891.798,	954.656,	820.001],
+                data: [171.025,	230.553,	335.151,	449.633,	486.558,	660.937,	690.851,	736.298,	848.229,	891.798,	954.656,	820.001,587.790],
                 color: '#492970'
             }, {
                 name: 'Marine & Hydrokinetic',
-                data: [0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	6.837,	28.959],
+                data: [0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	0.000,	28,	45,47],
                 color: '#00FFFF'
             }, {
                 name: 'Solar PV',
-                data: [0.000,	0.000,	0.006,	0.216,	0.803,	1.799,	2.420,	4.116,	36.688,	99.293,	323.164,	681.502],
+                data: [0.000,	0.000,	0.006,	0.216,	0.803,	1.799,	2.420,	4.116,	36.688,	99.293,	323.164,	681.502,1194.925],
                 color: '#910000'
             }, {
                 name: 'Wind',
-                data: [0.533,	4.000,	0.693,	65.952,	302.346,	463.865,	789.196,	893.575,	1231.667,	1623.119,	2605.415,	2586.416],
+                data: [0.533,	4.000,	0.693,	65.952,	302.346,	463.865,	789.196,	893.575,	1231.667,	1623.119,	2605.415,	2586.416,2518.915],
                 color: '#F28F43'
                 }],
            legend: {
@@ -102,6 +139,8 @@
         },
         });
     });
+    
+
     
 		
 			
