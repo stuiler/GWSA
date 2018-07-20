@@ -25,43 +25,6 @@
                 text: 'Source: RPS/APS Annual Compliance Report, DOER'
             },
             xAxis: {
-                categories: ['2003','2004','2005','2006','2007','2008','2009','2010','2011', '2012','2013','2014']
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Gigawatt hour (GWh)'
-                },
-                stackLabels: {
-                    enabled: true,
-                    style: {
-                        fontWeight: 'bold',
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-                    },
-                    formatter: function() {
-                        return Highcharts.numberFormat((this.total),0);
-                }
-                }
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.x +'</b><br/>'+
-                        this.series.name +': '+ Highcharts.numberFormat((this.y),0) + ' GWh' + '<br/>'+
-                        'Total: '+ Highcharts.numberFormat((this.point.stackTotal),0) + ' GWh';
-.highcharts({
-            chart: {
-                type: 'column'
-            },
-            credits:{
-                enabled: false
-            },
-            title: {
-                text: 'Renewable Energy Generation in Massachusetts'
-            },
-            subtitle: {
-                text: 'Source: RPS/APS Annual Compliance Report, DOER'
-            },
-            xAxis: {
                 categories: ['2003','2004','2005','2006','2007','2008','2009','2010','2011', '2012','2013','2014','2015']
             },
             yAxis: {
