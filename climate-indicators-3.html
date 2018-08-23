@@ -12,65 +12,88 @@
 			
 	$(function () {
         $('#container8').highcharts({
-            chart: {
-                type: 'area'
-            },
-            credits: {
-                enabled: false
-            },
-            legend:{
-                enabled: false
-            },
-            title: {
-                text: 'Vehicle Miles Traveled on Massachusetts Highway'
-            },
-            subtitle: {
-                text: 'Source: Federal Highway Administration, Table VM-2'
-            },
-            xAxis: {
-                labels: {
-                    formatter: function() {
-                        return Highcharts.numberFormat((this.value),0,'',''); // clean, unformatted number for year
-                    }
-                }
-            },
-            yAxis: {
-                title: {
-                    text: 'Billions of Vehicle Miles Traveled'
-                },
-                labels: {
-                    formatter: function() {
-                        return this.value / 1000000000 +'';
-                    }
-                }
-            },
-            tooltip: {
-                pointFormat: '{series.name}' + ': ' + '<b>{point.y:,.0f}'
-            },
-            plotOptions: {
-                area: {
-                    pointStart: 1990,
-                    marker: {
-                        enabled: false,
-                        symbol: 'circle',
-                        radius: 2,
-                        states: {
-                            hover: {
-                                enabled: true
-                            }
-                        }
-                    }
-                }
-            },
-            series: [{
-                name: 'Highway VMT in Massachusetts',
-                data: [46177000000,	46537000000,	47348000000,	46684000000,	46990000000,	48053000000,	49956000000,	50468000000,	51829000000,	51820000000,	52796000000,	53015000000,	53266000000,	53709000000,	54771000000,	55458000000,	55136000000,	55071000000,	54505000000,	54812000000,	54362000000,	54791712483,	55939716753,	56311172815,
-		       57552345777, 59257000000], 
-            }]
-        });
-    });
-    
-			
+    chart: {
+      type: 'area'
+    },
+    credits: {
+      enabled: false
+    },
+    legend: {
+      enabled: false
+    },
+    title: {
+      text: 'Vehicle Miles Traveled on Massachusetts Highway'
+    },
+    subtitle: {
+      text: 'Source: Federal Highway Administration, Table VM-2'
+    },
+    xAxis: {
+      labels: {
+        formatter: function() {
+          return Highcharts.numberFormat((this.value), 0, '', ''); // clean, unformatted number for year
+        }
+      }
+    },
+    yAxis: {
+      title: {
+        text: 'Billions of Vehicle Miles Traveled'
+      },
+      labels: {
+        formatter: function() {
+          return this.value / 1000000000 + '';
+        }
+      }
+    },
+    tooltip: {
+      pointFormat: '{series.name}' + ': ' + '<b>{point.y:,.0f}'
+    },
+    plotOptions: {
+      area: {
+        pointStart: 1990,
+        marker: {
+          enabled: false,
+          symbol: 'circle',
+          radius: 2,
+          states: {
+            hover: {
+              enabled: true
+            }
+          }
+        }
+      }
+    },
+    series: [{
+      name: 'Highway VMT in Massachusetts',
+      data: [48859265000,
+        49131555000,
+        49657885000,
+        49401655000,
+        49725045000,
+        50848515000,
+        52716950000,
+        53405705000,
+        54497055000,
+        54593050000,
+        55493505000,
+        56017645000,
+        56328625000,
+        56841815000,
+        57752490000,
+        58351455000,
+        57932070000,
+        57937910000,
+        57371065000,
+        57750665000,
+        57525460000,
+        57980250000,
+        59033275000,
+        59588075000,
+        60901710000,
+        60452206744
+      ]
+    }]
+  });
+});
 			
 			
 			
