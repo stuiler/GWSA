@@ -23,13 +23,12 @@ $(function () {
             text: 'MA Electricity GHG Emissions by Sector'
         },
         xAxis: {
-            categories: ['2006', '2007', '2008', '2009', '2010', '2011','2012','2013','2014','2015']
+            categories: ['2006', '2007', '2008', '2009', '2010', '2011','2012','2013','2014','2015','2016']
         },
         yAxis: {
             min: 0,
             title: {
-            		useHTML:true,
-                text: 'GHG Emitted (MMTCO<sub>2</sub>e)'
+                text: 'GHG Emitted (MMTCO2e)'
             },
             stackLabels: {
                 enabled: false,
@@ -67,15 +66,16 @@ $(function () {
         },
         series: [{
             name: 'Transportation',
-            data: [0.2,	0.2,	0.1,	0.1,	0.1,	0.1,	0.1,	0.1, 0.1,0.1],color: '#492970',dataLabels: {enabled: false}}, {
+            data: [0.2,	0.2,	0.1,	0.1,	0.1,	0.1,	0.1,	0.1,	0.1,	0.1,	0.1],color: '#492970',dataLabels: {enabled: false}}, {
             name: 'Industrial',
-            data: [4.4,	4.5,	4.1,	6.8,	6.9,	5.5,	4.8,	4.9, 2.2, 2.3], color: '#a6c96a'}, {
+            data: [4.4,	4.5,	4.1,	6.8,	6.9,	5.5,	4.8,	4.9,	2.2,	2.3,	2.1], color: '#a6c96a'}, {
             name: 'Commercial',
-                data: [12.1,	13.0,	11.8,	7.2,	7.3,	5.8,	5.1,	5.2, 7.1,7.5], color: '#77a1e5'}, {
+                data: [12.1,	13,	11.8,	7.2,	7.3,	5.8,	5.1,	5.2,	7.1,	7.5,	7.1], color: '#77a1e5'}, {
             name: 'Residential',
-                    data: [9.1,	9.7,	8.7,	7.9,	8.6,	6.7,	5.8,	6.1, 5.5, 5.8], color: '#2f7ed8'}]
+                    data: [9.1,	9.7,	8.7,	7.9,	8.6,	6.7,	5.8,	6.1,	5.5,	5.8,	5.4], color: '#2f7ed8'}]
     });
 });
+
 
 
 
