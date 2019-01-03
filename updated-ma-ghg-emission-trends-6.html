@@ -20,17 +20,15 @@ $(function () {
             enabled: false
         },
         title: {
-        		useHTML:true,
-            text: 'MA Coal CO<sub>2</sub> Emissions by Sector'
+            text: 'MA Coal CO2 Emissions by Sector'
         },
         xAxis: {
-            categories: ['1990','2000','2010','2015']
+            categories: ['1990','2000','2010','2016']
         },
         yAxis: {
             min: 0,
             title: {
-             		useHTML:true,
-                text: 'CO<sub>2</sub> Emissions (million metric tons)'
+                text: 'CO2 Emissions (million metric tons)'
             },
             stackLabels: {
                 enabled: false,
@@ -68,18 +66,19 @@ $(function () {
         },
         series: [{
             name: 'Industrial',
-            data: [0.1, 0.1, 0.2, 0.1],
+            data: [0.1, 0.1, 0.2, 0.0037],
             color: '#a6c96a',
             dataLabels: {
                 enabled: false
             }
         }, {
             name: 'Electric Power',
-            data: [10.4, 10.4, 7.6, 2.1],
+            data: [10.4, 10.4, 7.6, 1.8],
             color: '#1aadce' 
         }]
     });
 });
+
 
 			
 		</script>
