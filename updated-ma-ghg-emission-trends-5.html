@@ -11,8 +11,7 @@
 		<script type="text/javascript">
 
 
-
-  $(function () {
+$(function () {
         $('#container4').highcharts({
             chart: {
                 type: 'column'
@@ -21,17 +20,15 @@
                 enabled: false
             },
             title: {
-            		useHTML:true,
-                text: 'MA Petroleum CO<sub>2</sub> Emissions By Sector'
+                text: 'MA Petroleum CO2 Emissions By Sector'
             },
             xAxis: {
-                categories: ['1990', '2000', '2010', '2015']
+                categories: ['1990', '2000', '2010', '2016']
             },
             yAxis: {
                 min: 0,
                 title: {
-                 		useHTML:true,
-                    text: 'CO<sub>2</sub> Emissions (million metric tons)'
+                    text: 'CO2 Emissions (million metric tons)'
                 },
                 stackLabels: {
                     enabled: false,
@@ -72,28 +69,29 @@
             },
             series: [{
                 name: 'Electric Power',
-                data: [11.9, 6.9, {y:0.2,dataLabels: {enabled: false}}, {y:0.6,dataLabels: {enabled: false}}],
+                data: [11.4, 6.6, {y:0.2,dataLabels: {enabled: false}}, {y:0.3,dataLabels: {enabled: false}}],
                 color: '#1aadce'  
             }, {
                 name: 'Industrial',
-                data: [3.0, 1.6, 1.1, 1.1],
+                data: [3.0, 1.6, 1.2, 1.0],
                 color: '#a6c96a' 
             }, {
                 name: 'Commercial',
-                data: [5.5, 3.2, 2.8,1.8],
+                data: [5.5, 3.2, 2.8,1.3],
                 color: '#77a1e5'  
             }, {
                 name: 'Residential',
-                data: [9.2, 9.2, 6.7, 6.7],
+                data: [9.2, 9.3, 6.7, 5.3],
                 color: '#2f7ed8' 
             }, {
                 name: 'Transportation',
-                data: [28.9, 32.0, 29.7,29.3],
+                data: [28.9, 32.0, 29.7,31.3],
                 color: '#492970' 
             }]
         });
     });
 
+  
 			
 		</script>
 	</head>
