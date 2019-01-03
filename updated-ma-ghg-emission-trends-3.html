@@ -10,7 +10,6 @@
 		
 		<script type="text/javascript">
 			
-
 $(function () {
     $('#container2').highcharts({
         chart: {
@@ -20,8 +19,7 @@ $(function () {
             enabled: false
         },
         title: {
-        		useHTML:true,
-            text: '2015 MA & US CO<sub>2</sub> Emissions By Fuel Combusted' 
+            text: '2016 MA & US CO2 Emissions By Fuel Combusted' 
         },
         xAxis: {
             categories: ['MA', 'US']
@@ -29,8 +27,8 @@ $(function () {
         yAxis: {
             min: 0,
             max: 100,
-            title: {                    												useHTML:true,
-                text: 'Percentage of CO<sub>2</sub> Emitted'
+            title: {
+                text: 'Percentage of CO2 Emitted'
             },
             stackLabels: {
                 enabled: false,
@@ -77,15 +75,15 @@ $(function () {
         },
         series: [{
             name: 'Coal',
-            data: [3, 28],
+            data: [3, 26],
             color: '#f28f43' 
         }, {
             name: 'Natural Gas',
-            data: [36, 29],
+            data: [36, 30],
             color: '#2f7ed8' 
         }, {
             name: 'Petroleum',
-            data: [60, 43],
+            data: [61, 44],
             color: '#492970' 
         }]
     });
