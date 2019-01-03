@@ -12,8 +12,7 @@
 			
 			
 			
-			
-		$(function () {
+			$(function () {
 
     function GetChartOne() {
 
@@ -31,7 +30,7 @@
                 x: -20 //center
             },
             subtitle: {
-                text: 'Source:   MassDEP (2018). Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990 through 2015'
+                text: 'Source:   MassDEP. Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990 through 2016'
             },
             credits: {
                 enabled: false
@@ -47,8 +46,7 @@
 
             yAxis: {
                 title: {
-                		useHTML:true,
-                    text: 'Million Metric Tons of CO2 equivalent (MMTCO<sub>2</sub>e)'
+                    text: 'Million Metric Tons of CO2 equivalent (MMTCO2e)'
                 },
                 plotLines: [{
                     value: 0,
@@ -74,10 +72,10 @@
             },
             series: [{
                 name: 'Actual GHG Emissions',
-                data: [94.4,	92.7,	94.9,	93.0,	93.1,	90.9,	91.9,	96.8,	94.4,	93.4,	95.1,	94.4,	95.8,	96.0,	94.4,	96.6,	87.8,	90.7,	88.1,	81.7,	83.5,	78.7,	72.1,	75.9,	74.2,	76.3,	null,	null,	null,	null,	null]
+                data: [94.5,	92.8,	95.1,	93.0,	93.2,	90.8,	91.6,	96.2,	93.8,	92.7,	94.4,	93.5,	95.3,	96.6,	94.7,	96.5,	87.8,	90.5,	88.2,	81.8,	83.3,	78.5,	72.0,	75.8,	74.0,	76.1,	74.2,	null,	null,	null,	null]
             }, {
                name: 'BAU Projected GHG Emissions',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	96.5,	87.6,	90.6,	88.0,	91.7,	91.8,	91.8,	91.8,	91.8,	91.9,	91.9,	92.0,	92.2,	92.3,	92.5,	92.7],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	96.5,	87.8,	90.5,	88.2,	92.2,	92.5,	92.8,	93.1,	93.4,	93.9,	94.3,	94.8,	95.4,	96.0,	96.7,	97.4],
                 dashStyle: 'dash'
             },
             {
@@ -117,7 +115,7 @@
                 x: -20 //center
             },
             subtitle: {
-                text: 'Source:   MassDEP (2018). Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990 through 2015'
+                text: 'Source:   MassDEP (2017). Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990 through 2016'
             },                
             legend: {
                 align: 'center',
@@ -135,8 +133,7 @@
             },
             yAxis: {
                 title: {
-                    useHTML:true,
-                    text: 'Million Metric Tons of CO2 equivalent (MMTCO<sub>2</sub>e)'
+                    text: 'Million Metric Tons of CO2 equivalent (MMTCO2e)'
                 },
                 plotLines: [{
                     value: 0,
@@ -165,14 +162,14 @@
             <!--- Begin Transportation -->
             {
                 name: 'Transportation',
-                data: [30.5,	27.6,	27.4,	27.7,	27.9,	28.4,	29.7,	30.1,	30.2,	30.9,	32.0,	31.5,	31.6,	31.6,	33.4,	33.9,	32.8,	33.1,	32.9,	30.1,	29.8,	29.9,	29.3,	30.4,	28.5,	29.3,	null,	null,	null,	null,	null],
+                data: [30.5,	27.6,	27.4,	27.7,	27.9,	28.4,	29.7,	30.1,	30.2,	30.9,	32.0,	31.5,	31.6,	31.6,	33.4,	33.9,	32.8,	33.1,	32.9,	30.1,	29.8,	29.9,	29.3,	30.4,	28.5,	29.3,	31.4,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
             color: '#2F7ED8'
             }, {
                 name: 'Projected Transportation',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	33.9,	32.8,	33.2,	32.9,	34.6,	34.8,	35.1,	35.3,	35.6,	35.8,	36.1,	36.3,	36.6,	36.9,	37.1,	37.4],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	33.9,	32.8,	33.1,	32.9,	34.5,	34.7,	35.0,	35.2,	35.5,	35.8,	36.0,	36.3,	36.5,	36.8,	37.1,	37.3],
                 marker: {
                     enabled: false
                 },
@@ -183,14 +180,14 @@
             <!--- Begin Electricity Consumption -->
             {
                 name: 'Electricity Consumption',
-                data: [28.2,	28.3,	27.1,	25.5,	25.6,	24.7,	24.5,	28.6,	29.0,	27.5,	26.7,	26.2,	27.7,	29.2,	28.1,	29.5,	25.8,	27.4,	24.7,	22.2,	22.9,	18.1,	15.8,	16.3,	14.8,	15.6,	null,	null,	null,	null,	null],
+                data: [28.2,	28.3,	27.1,	25.5,	25.6,	24.7,	24.5,	28.6,	29.0,	27.5,	26.7,	26.2,	27.7,	29.2,	28.1,	29.5,	25.8,	27.4,	24.7,	22.2,	22.9,	18.1,	15.8,	16.3,	14.8,	15.6,	14.7,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
                 color: '#0d233a'
             }, {
                 name: 'Projected Electricity Consumption',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	29.5,	25.8,	27.4,	24.7,	27.1,	26.9,	26.8,	26.7,	26.6,	26.5,	26.4,	26.3,	26.2,	26.1,	26.0,	26.0],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	29.5,	25.8,	27.4,	24.7,	27.1,	27.0,	26.8,	26.7,	26.6,	26.5,	26.4,	26.3,	26.2,	26.1,	26.0,	26.0],
                 marker: {
                     enabled: false
                 },
@@ -201,14 +198,14 @@
             <!--- Begin Residential Consumption -->
             {
                 name: 'Residential',
-                data: [15.3,	14.3,	16.4,	16.5,	16.3,	14.7,	14.5,	14.4,	13.2,	14.0,	15.6,	15.9,	15.9,	16.3,	14.9,	14.8,	12.8,	13.5,	14.4,	13.8,	13.6,	13.6,	11.8,	12.3,	13.6,	13.6,	null,	null,	null,	null,	null],
+                data: [15.3,	14.3,	16.4,	16.5,	16.3,	14.7,	14.5,	14.4,	13.2,	14.0,	15.6,	15.9,	15.9,	16.3,	14.9,	14.8,	12.8,	13.5,	14.4,	13.8,	13.6,	13.6,	11.8,	12.3,	13.6,	13.6,	11.4,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
                 color: '#8bbc21'
             }, {
                 name: 'Projected Residential',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	14.8,	12.8,	13.5,	14.4,	14.2,	14.1,	14.1,	14.1,	14.0,	14.0,	14.0,	13.9,	13.9,	13.8,	13.8,	13.8],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	14.8,	12.8,	13.5,	14.4,	14.2,	14.2,	14.1,	14.1,	14.0,	14.0,	14.0,	13.9,	13.9,	13.9,	13.8,	13.8],
                 marker: {
                     enabled: false
                 },
@@ -219,14 +216,14 @@
             <!--- Begin Commercial Consumption -->
             {
                 name: 'Commercial',
-                data: [8.4,	9.2,	8.9,	8.0,	8.9,	9.0,	9.1,	9.5,	8.1,	6.2,	6.8,	5.7,	5.9,	7.1,	6.5,	6.7,	5.0,	5.3,	5.6,	5.8,	6.7,	6.3,	5.2,	6.8,	7.1,	7.6,	null,	null,	null,	null,	null],
+                data: [8.4,	9.2,	8.9,	8.0,	8.9,	9.0,	9.1,	9.5,	8.1,	6.2,	6.8,	5.7,	5.9,	7.1,	6.5,	6.7,	5.0,	5.3,	5.6,	5.8,	6.7,	6.3,	5.2,	6.8,	7.1,	7.6,	7.0,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
                 color: '#910000'
             }, {
                name: 'Projected Commercial',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	6.7,	5.0,	5.3,	5.6,	5.0,	4.9,	4.8,	4.6,	4.5,	4.4,	4.3,	4.2,	4.2,	4.1,	4.0,	3.9],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	6.7,	5.0,	5.3,	5.6,	5.0,	4.9,	4.8,	4.7,	4.5,	4.4,	4.3,	4.2,	4.2,	4.1,	4.0,	3.9],
                 marker: {
                     enabled: false
                 },
@@ -238,7 +235,7 @@
             <!--- Begin Industrial (Fuel) Consumption -->
             {
                 name: 'Industrial (Fuel)',
-                data: [5.7,	5.0,	6.8,	6.9,	6.0,	5.2,	5.2,	5.4,	5.3,	5.9,	5.7,	6.8,	6.7,	4.4,	4.3,	4.5,	4.4,	4.3,	4.0,	3.2,	3.7,	3.9,	3.4,	3.6,	3.5,	3.5,	null,	null,	null,	null,	null],
+                data: [5.8,	5.0,	6.8,	6.9,	6.0,	5.2,	5.2,	5.4,	5.3,	5.9,	5.7,	6.8,	6.7,	4.4,	4.3,	4.5,	4.4,	4.3,	4.0,	3.2,	3.7,	3.9,	3.4,	3.6,	3.5,	3.5,	3.4,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
@@ -260,7 +257,7 @@
             {
                 name: 'Industrial (Processes)',
 
-                data: [0.7,	0.5,	0.6,	0.7,	0.9,	1.3,	1.6,	1.8,	2.1,	2.3,	2.5,	2.5,	2.6,	2.6,	2.6,	2.6,	2.7,	2.8,	3.0,	3.3,	3.5,	3.7,	3.7,	3.8,	4.0,	4.2,	null,	null,	null,	null,	null],
+                data: [0.7,	0.6,	0.7,	0.8,	0.9,	1.3,	1.6,	1.8,	2.1,	2.3,	2.5,	2.6,	2.7,	2.8,	2.8,	2.8,	2.9,	2.9,	3.1,	3.3,	3.5,	3.6,	3.6,	3.6,	3.8,	0.0,	0.0,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
@@ -268,7 +265,7 @@
                 visible: false
             }, {
                 name: 'Projected Industrial (Processes)',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	3.1,	3.2,	3.2,	3.3,	3.6,	3.8,	4.0,	4.2,	4.3,	4.5,	4.8,	5.0,	5.2,	5.4,	5.7,	5.9],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	2.8,	2.9,	2.9,	3.1,	3.3,	3.5,	3.7,	3.8,	4.0,	4.2,	4.4,	4.6,	4.9,	5.1,	5.3,	5.6],
                 marker: {
                     enabled: false
                 },
@@ -281,7 +278,7 @@
             {
                 name: 'Agriculture',
 
-                data: [0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.4,	0.4,	0.3,	0.2,	0.3,	0.2,	0.2,	0.2,	0.3,	0.3,	null,	null,	null,	null,	null],
+                data: [0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.4,	0.3,	0.3,	0.3,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	3.1,	2.8,	null,	null,	null,	null],
                 marker: {
                     enabled: false
                 },
@@ -289,7 +286,7 @@
                 visible: false
             }, {
                 name: 'Projected Agriculture',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	0.3,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3],
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	0.3,	0.4,	0.4,	0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3],
                 marker: {
                     enabled: false
                 },
@@ -302,7 +299,7 @@
             <!--- Begin Waste Consumption -->
             {
                 name: 'Waste',
-                data: [2.7,	3.0,	2.9,	2.9,	2.8,	2.8,	2.7,	2.6,	2.4,	2.3,	1.7,	1.7,	1.5,	1.0,	1.0,	1.2,	1.0,	1.1,	0.8,	0.7,	0.9,	0.9,	1.0,	0.9,	0.8,	0.8,	null,	null,	null,	null,	null],
+                data: [2.7,	3.0,	2.9,	2.8,	2.8,	2.7,	2.3,	2.0,	1.7,	1.7,	1.1,	0.7,	1.1,	1.6,	1.3,	1.1,	1.0,	0.9,	0.8,	0.9,	0.9,	0.9,	1.0,	0.9,	0.8,	15.6,	14.7,	null,	null,	null,	null],
                 visible: false,
                 marker: {
                     enabled: false
@@ -315,49 +312,49 @@
                     y: 1.1
                 }, {
                     x: 2006,
-                    y: 0.9
-                }, {
-                    x: 2007,
                     y: 1.0
                 }, {
+                    x: 2007,
+                    y: 0.9
+                }, {
                     x: 2008,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2009,
-                    y: 0.6
+                    y: 0.8
                 }, {
                     x: 2010,
                     y: 0.8
                 }, {
                     x: 2011,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2012,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2013,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2014,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2015,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2016,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2017,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2018,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2019,
-                    y: 0.7
+                    y: 0.8
                 }, {
                     x: 2020,
-                    y: 0.7
+                    y: 0.8
                 }],
                 visible: false,
                 marker: {
@@ -390,7 +387,8 @@
             handler();
         })
     });
-});	
+});
+		
 			
 			
 			
