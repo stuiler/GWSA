@@ -10,9 +10,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<script type="text/javascript">
-			
-			
+<script type="text/javascript">	
 			
 			$(function () {
   
@@ -141,3 +139,15 @@
     }
   }]
 });
+
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container101" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
+
+
