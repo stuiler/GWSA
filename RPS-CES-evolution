@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Massachusetts GHG Emissions, Business-As-Usual (BAU) Projection, and 2020 Emission Limit</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		
+		<script type="text/javascript">
+			
+			
+			
+			$(function () {
+    function GetChartOne() {
+        return (
+        new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line',
+                zoomType: 'xy',
+                marginRight: 130,
+                marginBottom: 100
+            },
+             title: {
+    text: 'Renewable Portfolio and Clean Energy Standard'
+  },
+  subtitle: {
+    text: 'Source: Mass. DOER'
+  },
+  xAxis: [{
+    categories: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', '2045', '2046', '2047', '2048', '2049', '2050'],
+    crosshair: true
+  }],
+  yAxis: [{ // Primary yAxis
+    gridLineWidth: 0,
+    tickAmount: 6,
+    max: 55000,
+    title: {
+      text: 'Electricity Generation (GWh)',
+      style: {
+        color: 'black'
+      }
+    },
+    labels: {
+      format: '{value:,.of} GWh',
+      style: {
+        color: 'black'
+      }
+    }
+
+  }, { // Seconday yAxis
+    gridLineWidth: 0,
+    tickAmount: 6,
+    title: {
+      text: 'Total Clean Energy Standard (percent)',
+      style: {
+        color: 'red'
+      }
+    },
+    max: 120,
+    labels: {
+      format: '{value}%',
+      style: {
+        color: 'red'
+      }
+    },
+    opposite: true
+  }],
+  tooltip: {
+    shared: true
+  },
+  legend: {
+    layout: 'vertical',
+    //align: 'left',
+    //x: 80,
+    //verticalAlign: 'top',
+    //y: 55,
+    //floating: true,
+    //backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
+  },
+  series: [{
+    name: 'Retail Load Obligation',
+    type: 'spline',
+    data: [50026, 49386, 48992, 49253, 48129, 48010, 46864],
+    label: {
+      enabled: false
+    },
+    color: 'blue',
+    marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' GWh'
+    }
+
+  }, {
+    name: 'Projected Retail Load Obligation',
+    type: 'spline',
+    data: [null, null, null, null, null, null, 46864, 45722, 46982, 46067, 45047],
+    marker: {
+      enabled: false
+    },
+    color: 'blue',
+    label: {
+      enabled: false
+    },
+    dashStyle: 'shortdot',
+    tooltip: {
+      valueSuffix: ' GWh'
+    }
+  }, {
+    name: 'Total RPS- or CES-Eligible Generation',
+    type: 'column',
+    data: [2326, 2640, 3134, 4208, 4476, 4569, 5215],
+    color: 'black',
+    label: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' GWh'
+    }
+  }, {
+    name: '\RPS Class I & CES Obligation',
+    yAxis: 1,
+    type: 'spline',
+    data: [5, 5, 6, 9, 9, 10, 11, 12, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80],
+    marker: {
+      enabled: false
+    },
+    label: {
+      enabled: false
+    },
+    dashStyle: 'shortdot',
+
+    color: 'red',
+    tooltip: {
+      valueSuffix: ' %'
+    }
+  }]
+});
