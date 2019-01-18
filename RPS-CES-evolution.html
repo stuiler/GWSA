@@ -70,10 +70,14 @@ $(function () {
     shared: true
   },
   legend: {
-    layout: 'horizontal',
-    verticalAlign: 'bottom'
-    //backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
-  },
+        layout: 'vertical',
+        backgroundColor: '#FFFFFF',
+        align: 'left',
+        verticalAlign: 'top',
+        floating: true,
+        x: 200,
+        y: 45
+    },
   series: [{
     name: 'Retail Load Obligation',
     type: 'spline',
