@@ -26,7 +26,7 @@ $(function () {
     text: 'Source: MassDEP EVIP and DOER MOR-EV'
   },
   xAxis: [{
-    categories: ['2013', 	'2014', 	'2015', 	'2016', 	'2017', 	'2018', 	'2019', 	'2020', 	'2021', 	'2022', 	'2023', 	'2024', 	'2025'],
+    categories: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     crosshair: true
   }],
   yAxis: [{ // Primary yAxis
@@ -42,20 +42,6 @@ $(function () {
         color: 'black'
       }
     }
-  }, { // Seconday yAxis
-    title: {
-      text: 'Percent of Fleet',
-      style: {
-        color: 'red'
-      }
-    },
-    labels: {
-      format: '{value}%',
-      style: {
-        color: 'blue'
-      }
-    },
-    opposite: true
   }],
   
    plotOptions: {
@@ -68,7 +54,7 @@ $(function () {
   series: [{
     name: 'Total BEVs and PHEVs on the road',
     type: 'spline',
-    data: [3,333,	4,664,	6,051,	8,555,	12,699,	17,747,	null,	null,	null,	null,	null,	null,	null],
+    data: [3333,4664,6051,8555,12699,17747,null,null,null,null,null,null	null],
     label: {
       enabled: false
     },
@@ -82,7 +68,7 @@ $(function () {
   }, {
     name: 'Projected BEVs and PHEVs on the road',
     type: 'spline',
-    data: [null,	null,	null,	null,	null,	17,747,	25,170,	36,042,	51,932,	75,124,	108,944,	158,239,	230,075],
+    data: [null,null,null,null,null,17747,25170,36042,51932,75124,108944,158239,230075],
     marker: {
       enabled: false
     },
@@ -97,7 +83,7 @@ $(function () {
   }, {
     name: 'BEV Sales',
     type: 'column',
-    data: [599,	796,	1,051,	1,811,	4,356,	6,299,	null,	null,	null,	null,	null,	null,	null],
+    data: [599,	796,1051,1811,4356,6299,null,	null,	null,	null,	null,	null,	null],
     color: 'red',
     label: {
       enabled: false
@@ -111,7 +97,7 @@ $(function () {
   }, {
     name: 'PHEV Sales',
     type: 'column',
-    data: [732,	591,	1,453,	2,333,	2,664,	3,920,	null,	null,	null,	null,	null,	null,	null],
+    data: [732,	591,1453,2333,2664,3920,null,	null,	null,	null,	null,	null,	null],
     marker: {
       enabled: false
     },
@@ -126,7 +112,7 @@ $(function () {
   {
     name: 'Projected EV Sales',
     type: 'column',
-    data: [null,	null,	null,	null,	null,	4,356,	6,299,	9,108,	13,170,	19,043,	27,536,	39,817,	57,575],
+    data: [null,null,null,null,	null,4356,6299,	9108,13170,19043,27536,39817,57575],
     color: 'url(#highcharts-default-pattern-1)',
     label: {
       enabled: false
@@ -140,7 +126,7 @@ $(function () {
   }, {
     name: 'Projected PHEV Sales',
     type: 'column',
-    data: [null,	null,	null,	null,	null,	2,664,	3,920,	5,769,	8,491,	12,495,	18,388,	27,061,	39,824],
+    data: [null,null,null,null,null,2664,3920,5769,8491,12495,18388,27061,39824],
     marker: {
       enabled: false
     },
