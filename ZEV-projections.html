@@ -54,7 +54,7 @@ $(function () {
   series: [{
     name: 'Total BEVs and PHEVs on the road',
     type: 'spline',
-    data: [3333,4664,6051,8555,12699,17747,null,null,null,null,null,null,null],
+    data: [3333,4664,6051,8555,12699,17747],
     label: {
       enabled: false
     },
@@ -77,13 +77,14 @@ $(function () {
       enabled: false
     },
     dashStyle: 'shortdot',
+	visible: false,	  
     tooltip: {
       valueSuffix: ' vehicles'
     }
   }, {
     name: 'BEV Sales',
     type: 'column',
-    data: [599,	796,1051,1811,4356,6299,null,	null,	null,	null,	null,	null,	null],
+    data: [599,	796,1051,1811,4356,6299],
     color: 'red',
     label: {
       enabled: false
@@ -97,7 +98,7 @@ $(function () {
   }, {
     name: 'PHEV Sales',
     type: 'column',
-    data: [732,	591,1453,2333,2664,3920,null,	null,	null,	null,	null,	null,	null],
+    data: [732,	591,1453,2333,2664,3920],
     marker: {
       enabled: false
     },
@@ -112,8 +113,9 @@ $(function () {
   {
     name: 'Projected EV Sales',
     type: 'column',
-    data: [null,null,null,null,	null,4356,6299,	9108,13170,19043,27536,39817,57575],
-    color: 'url(#highcharts-default-pattern-1)',
+    data: [null,null,null,null,	null,null,6299,	9108,13170,19043,27536,39817,57575],
+    visible: false,
+	  color: 'url(#highcharts-default-pattern-1)',
     label: {
       enabled: false
     },
@@ -126,8 +128,9 @@ $(function () {
   }, {
     name: 'Projected PHEV Sales',
     type: 'column',
-    data: [null,null,null,null,null,2664,3920,5769,8491,12495,18388,27061,39824],
-    marker: {
+    data: [null,null,null,null,null,null,3920,5769,8491,12495,18388,27061,39824],
+    visible: false,
+	  marker: {
       enabled: false
     },
     color: 'url(#highcharts-default-pattern-0)',
