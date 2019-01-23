@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Mass. Vehicle-Miles Traveled, Fuel Use, and Fuel Economy Standards</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript">	
+			
+$(function () {  
+      $('#container103').highcharts({
+         chart: {
+                zoomType: 'xy',
+            },
+             credits: {
+            enabled: false
+        },
+	     title: {
+    text: 'Battery- and Partial Hybrid Electric Vehicle Fleet and Sales Growth'
+  },
+  subtitle: {
+    text: 'Source: MassDEP EVIP and DOER MOR-EV'
+  },
+  xAxis: [{
+    categories: ['2013', 	'2014', 	'2015', 	'2016', 	'2017', 	'2018', 	'2019', 	'2020', 	'2021', 	'2022', 	'2023', 	'2024', 	'2025'],
+    crosshair: true
+  }],
+  yAxis: [{ // Primary yAxis
+    title: {
+      text: 'Number of Electric Vehicles',
+      style: {
+        color: 'black'
+      }
+    },
+    labels: {
+      format: '{value}',
+      style: {
+        color: 'black'
+      }
+    }
+  }, { // Seconday yAxis
+    title: {
+      text: 'Percent of Fleet',
+      style: {
+        color: 'red'
+      }
+    },
+    labels: {
+      format: '{value}%',
+      style: {
+        color: 'blue'
+      }
+    },
+    opposite: true
+  }],
+  
+   plotOptions: {
+        column: {
+            stacking: 'normal'}
+  },         
+  tooltip: {
+    shared: true
+  },
+  series: [{
+    name: 'Total BEVs and PHEVs on the road',
+    type: 'spline',
+    data: [3,333,	4,664,	6,051,	8,555,	12,699,	17,747,	null,	null,	null,	null,	null,	null,	null]
+    label: {
+      enabled: false
+    },
+    color: 'black',
+    marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }, {
+    name: 'Projected BEVs and PHEVs on the road',
+    type: 'spline',
+    data: [null,	null,	null,	null,	null,	17,747,	25,170,	36,042,	51,932,	75,124,	108,944,	158,239,	230,075]
+    marker: {
+      enabled: false
+    },
+    color: 'black',
+    label: {
+      enabled: false
+    },
+    dashStyle: 'shortdot',
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }, {
+    name: 'BEV Sales',
+    type: 'column',
+    data: [599,	796,	1,051,	1,811,	4,356,	6,299,	null,	null,	null,	null,	null,	null,	null],
+    color: 'red',
+    label: {
+      enabled: false
+    },
+      marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }, {
+    name: 'PHEV Sales',
+    type: 'column',
+    data: [732,	591,	1,453,	2,333,	2,664,	3,920,	null,	null,	null,	null,	null,	null,	null],
+    marker: {
+      enabled: false
+    },
+    label: {
+      enabled: false
+    },
+    color: 'blue',
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }, 
+  {
+    name: 'Projected EV Sales',
+    type: 'column',
+    data: [599,	796,	1,051,	1,811,	4,356,	6,299,	null,	null,	null,	null,	null,	null,	null],
+    color: 'url(#highcharts-default-pattern-1)',
+    label: {
+      enabled: false
+    },
+      marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }, {
+    name: 'Projected PHEV Sales',
+    type: 'column',
+    data: [732,	591,	1,453,	2,333,	2,664,	3,920,	null,	null,	null,	null,	null,	null,	null],
+    marker: {
+      enabled: false
+    },
+    color: 'url(#highcharts-default-pattern-0)',
+    label: {
+      enabled: false
+    },
+    dashStyle: 'shortdot',
+    color: 'blue',
+    tooltip: {
+      valueSuffix: ' vehicles'
+    }
+  }
+  ]
+});
+});
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container103" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
