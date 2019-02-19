@@ -34,9 +34,6 @@
 	
 <script type="text/javascript">	
 
-$(function () {  
-      $('#container104').highcharts({
-
 	var chart,
 	      chartOptions = {};
 
@@ -248,34 +245,13 @@ chartOptions.chart2 = {
     }
   }]
 };
-
-
+		</script>
+	</head>
+	<body>
+		
+<div  id="container104" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto">
+	
 $(function() {
-
-  //common options
-  Highcharts.setOptions({
-    chart: {
-      marginRight: 100
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'top',
-      y: 50
-    },
-    plotOptions: {
-      bar: {
-        pointPadding: .01
-      },
-      column: {
-        borderWidth: 0.5
-      },
-      line: {
-        lineWidth: 1
-      }
-
-    }
-  });
 
   $('#container104').highcharts(chartOptions.chart1);
   chart = $('#container104').highcharts();
@@ -286,15 +262,12 @@ $(function() {
     chart.destroy();
     $('#container104').highcharts(chartOptions[$(this).data('chartName')]);
     chart = $('#container104').highcharts();
-  });
-});
-});
-		</script>
-	</head>
-	<body>
+
+	});
+		});
 
 
-<div  id="container104" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+</div>
 
 	</body>
 </html>
