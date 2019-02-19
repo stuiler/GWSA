@@ -2,6 +2,7 @@
 <html>
 <head>
 
+	
 		<title>Buildings Sector Energy Use</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -13,13 +14,28 @@
 
 <button class="chart-update selected" data-chart-name="chart1">Chart 1</button>
 <button class="chart-update" data-chart-name="chart2">Chart 2</button>
-<button class="chart-update" data-chart-name="chart3">Chart 3</button>
-
 
 <script type="text/javascript">	
 			
-$(function () {  
-      $('#container104').highcharts({
+	<style>
+		button.chart-update {
+ 		 cursor: pointer;
+		  background-color: rgba(0, 155, 255, 1);
+		  border: none;
+		  border-radius: 5px;
+		  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+		  color: rgba(255, 255, 255, 0.9);
+ 		 font-weight: bold;
+ 		 padding: 0.5em;
+ 		 margin: 0.5em;
+		}
+	</style>
+
+button.selected {
+  background-color: rgba(255, 99, 0, 1);
+}
+	
+	
 var chart,
   chartOptions = {};
 
@@ -260,15 +276,15 @@ $(function() {
     }
   });
 
-  $('#container').highcharts(chartOptions.chart1);
-  chart = $('#container').highcharts();
+  $('#container104').highcharts(chartOptions.chart1);
+  chart = $('#container104').highcharts();
 
   $(document).on('click', '.chart-update', function() {
     $('button').removeClass('selected');
     $(this).addClass('selected');
     chart.destroy();
-    $('#container').highcharts(chartOptions[$(this).data('chartName')]);
-    chart = $('#container').highcharts();
+    $('#container104').highcharts(chartOptions[$(this).data('chartName')]);
+    chart = $('#container104').highcharts();
   });
 
 });
