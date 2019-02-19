@@ -86,7 +86,7 @@ tooltip: {
   shared: true
 },
 series: [{
-  name: 'Electricity',
+  name: 'Electricity Savings',
   type: 'column',
   yAxis: 2,
   data: [2154920, 5067887, 8931094, 12766956, 17163723, 21463952, 25498125, 29331050, 32574643, 35473853, 38708589, 40441230],
@@ -101,7 +101,7 @@ series: [{
     valueSuffix: ' mmBTU'
   }
 }, {
-  name: 'Natural Gas',
+  name: 'Natural Gas Savings',
   type: 'column',
   yAxis: 2,
   data: [119201, 216377, 419358, 595667, 840735, 941877, 1074281, 1181568, 1299546, 1477516, 1545806, 1731107],
@@ -116,7 +116,7 @@ series: [{
     valueSuffix: ' mmBTU'
   }
 }, {
-  name: 'Petroleum',
+  name: 'Petroleum Savings',
   type: 'column',
   yAxis: 2,
   data: [232075, 574882, 852509, 1295840, 1718833, 2074775, 1738824, 1516310, 1581252, 1560988, 1682174, 2063559],
@@ -145,34 +145,6 @@ series: [{
     valueSuffix: ' %'
   }
 }, {
-  name: 'Total Buildings Sector Energy Consumption',
-  type: 'spline',
-  data: [0, 0.1, -8.8, -1.7, 2.7, 3.3, -3.6],
-  color: 'red',
-  label: {
-    enabled: false
-  },
-  marker: {
-    enabled: false
-  },
-  tooltip: {
-    valueSuffix: ' %'
-  }
-}, {
-  name: 'Buildings Sector Energy Use Per Capita',
-  type: 'spline',
-  data: [0, -0.5, -9.9, -3.6, -0.2, 0.1, -6.9],
-  label: {
-    enabled: false
-  },
-  color: 'blue',
-  marker: {
-    enabled: false
-  },
-  tooltip: {
-    valueSuffix: ' %'
-  }
-}, {
   name: 'Mass Save<sup>(R)</sup> Cumulative Savings as a Percent of Total Energy Use',
   type: 'spline',
   yAxis: 1,
@@ -180,7 +152,7 @@ series: [{
   marker: {
     enabled: false
   },
-  color: 'green',
+  color: 'blue',
   label: {
     enabled: false
   },
