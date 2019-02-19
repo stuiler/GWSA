@@ -15,29 +15,30 @@
 <button class="chart-update selected" data-chart-name="chart1">Chart 1</button>
 <button class="chart-update" data-chart-name="chart2">Chart 2</button>
 
-<script type="text/javascript">	
-			
-	<style>
-		button.chart-update {
+<style>
+	.chart-update {
  		 cursor: pointer;
-		  background-color: rgba(0, 155, 255, 1);
-		  border: none;
-		  border-radius: 5px;
-		  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-		  color: rgba(255, 255, 255, 0.9);
+		 background-color: rgba(0, 155, 255, 1);
+		 border: none;
+		 border-radius: 5px;
+		 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+		 color: rgba(255, 255, 255, 0.9);
  		 font-weight: bold;
  		 padding: 0.5em;
  		 margin: 0.5em;
-		}
-	</style>
-
-button.selected {
+		};
+	.selected {
   background-color: rgba(255, 99, 0, 1);
 }
+</style>
 	
-	
-var chart,
-  chartOptions = {};
+<script type="text/javascript">	
+
+$(function () {  
+      $('#container104').highcharts({
+
+	var chart,
+	      chartOptions = {};
 
 chartOptions.chart1 = {
   chart: {
@@ -286,7 +287,7 @@ $(function() {
     $('#container104').highcharts(chartOptions[$(this).data('chartName')]);
     chart = $('#container104').highcharts();
   });
-
+});
 });
 		</script>
 	</head>
