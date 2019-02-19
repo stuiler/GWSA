@@ -12,11 +12,11 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<button class="chart-update selected" data-chart-name="chart1">Chart 1</button>
-<button class="chart-update" data-chart-name="chart2">Chart 2</button>
+<button class="chart-update selected" data-chart-name="chart1">Energy use by fuel</button>
+<button class="chart-update" data-chart-name="chart2">Energy use by sector</button>
 
 <style>
-	.chart-update {
+	button.chart-update {
  		 cursor: pointer;
 		 background-color: rgba(0, 155, 255, 1);
 		 border: none;
@@ -27,7 +27,7 @@
  		 padding: 0.5em;
  		 margin: 0.5em;
 		};
-	.selected {
+	button.selected {
   background-color: rgba(255, 99, 0, 1);
 }
 </style>
@@ -203,7 +203,7 @@ chartOptions.chart2 = {
 
     name: 'Residential',
 
-    type: 'column',
+    type: 'area',
     data: [307, 296, 331, 334, 331, 305, 307, 298, 277, 295, 320, 321, 323, 338, 316, 310, 274, 289, 305, 304, 303, 302, 273, 285, 304, 302, 267],
     label: {
       enabled: false
@@ -217,7 +217,7 @@ chartOptions.chart2 = {
     }
   }, {
     name: 'Commercial',
-    type: 'column',
+    type: 'area',
     data: [196, 208, 209, 197, 216, 217, 224, 233, 212, 181, 194, 183, 185, 205, 198, 198, 174, 185, 189, 189, 205, 202, 186, 215, 224, 232, 225],
     marker: {
       enabled: false
@@ -231,7 +231,7 @@ chartOptions.chart2 = {
     }
   }, {
     name: 'Industrial',
-    type: 'column',
+    type: 'area',
     data: [143, 139, 165, 167, 150, 144, 145, 144, 139, 154, 157, 171, 169, 121, 119, 123, 122, 117, 105, 105, 116, 121, 111, 114, 113, 112, 110],
     color: 'gray',
     label: {
