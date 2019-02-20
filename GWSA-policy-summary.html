@@ -17,20 +17,37 @@ $(function () {
       chart: {
         type: 'column'
     },
-
+	credits: {
+		enabled: false
+	},
     title: {
-        text: 'Total fruit consumtion, grouped by gender'
+        text: 'Achieved and Projected GHG Emissions Reductions'
     },
 
     xAxis: {
-        categories: ['Buildings', 'Electricity', 'Transportation', 'Non-Energy', 'Total']
+        categories: [{
+		name: 'Buildings',
+		categories: ['2016','2020']
+	},{
+		name: 'Electricity',
+		categories: ['2016','2020']
+	},{
+		name: 'Transportation',
+	   	categories: ['2016','2020']
+	},{
+		name: 'Non-Energy', 
+	   	categories: ['2016','2020']
+	},{
+		name:'Total',
+		categories: ['2016','2020']
+	}]
     },
 
     yAxis: {
         allowDecimals: false,
         min: -5,
         title: {
-            text: 'Number of fruits'
+            text: 'GHG Reductions (Increases) (MMTCO2e)'
         }
     },
 
@@ -51,10 +68,10 @@ $(function () {
     series: [{
         name: 'GHG Reductions from GWSA Policies as of 2016',
         data: [4.0, 2.4, 3.2, 2.1, 11.6],
-        color: 'blue',
+        color: '#2f7ed8',
         stack: '2016'
     }, {
-        name: 'Net Baseline Changes from 1990 in 2016',
+        name: 'Net Baseline Changes from 1990',
         data: [3.5, 11.1, -4.4, -2.0, 8.2],
         color: 'url(#highcharts-default-pattern-1)',
         stack: '2016'
@@ -66,12 +83,14 @@ $(function () {
     },{
         name: 'GHG Reductions from GWSA Policies as of 2016',
         data: [4.0, 2.4, 3.2, 2.1, 11.6],
-        color: 'blue',
+        showInLegend: false,
+	color: '#2f7ed8',
         stack: '2020'
     }, {
-        name: 'Projected Baseline Changes from 1990 in 2020',
+        name: 'Net Baseline Changes from 1990',
         data: [0.6, 11.2, -4.3, -2.3, 5.3],
-        color: 'url(#highcharts-default-pattern-0)',
+        showInLegend: false,
+	color: 'url(#highcharts-default-pattern-1)',
         stack: '2020'
     }]
     });
