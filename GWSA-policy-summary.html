@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<title>Battery- and Partial Hybrid Electric Vehicle Fleet and Sales Growth</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+
+<script type="text/javascript">	
+			
+$(function () {  
+      $('#container108').highcharts({
+      
+      chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Total fruit consumtion, grouped by gender'
+    },
+
+    xAxis: {
+        categories: ['Buildings', 'Electricity', 'Transportation', 'Non-Energy', 'Total']
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: -5,
+        title: {
+            text: 'Number of fruits'
+        }
+    },
+
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                'Total: ' + this.point.stackTotal;
+        }
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        }
+    },
+
+    series: [{
+        name: 'GHG Reductions from GWSA Policies as of 2016',
+        data: [4.0, 2.4, 3.2, 2.1, 11.6],
+        color: 'blue',
+        stack: '2016'
+    }, {
+        name: 'Net Baseline Changes from 1990 in 2016',
+        data: [3.5, 11.1, -4.4, -2.0, 8.2],
+        color: 'url(#highcharts-default-pattern-1)',
+        stack: '2016'
+    }, {
+        name: 'Additional Reductions Projected for 2020',
+        data: [2.8, 2.3, 1.8, 0.1, 7.1],
+        color: 'green',
+        stack: '2020'
+    },{
+        name: 'GHG Reductions from GWSA Policies as of 2016',
+        data: [4.0, 2.4, 3.2, 2.1, 11.6],
+        color: 'blue',
+        stack: '2020'
+    }, {
+        name: 'Projected Baseline Changes from 1990 in 2020',
+        data: [0.6, 11.2, -4.3, -2.3, 5.3],
+        color: 'url(#highcharts-default-pattern-0)',
+        stack: '2020'
+    }]
+    });
+});
+		</script>
+	</head>
+	<body>
+
+
+<div  id="container108" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
+
+	</body>
+</html>
