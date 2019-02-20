@@ -10,6 +10,11 @@
 <script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
 <script src="https://code.highcharts.com/modules/grouped-categories.js"></script>
 	
+	<script type="text/javascript">		
+	var Highcharts = require('highcharts'),
+    		require('grouped-categories')(Highcharts);
+	
+	</script>
 	
 <script type="text/javascript">	
 			
@@ -24,7 +29,7 @@ $(function () {
 		enabled: false
 	},
     title: {
-        text: 'Achieved and Projected GHG Emissions Reductions'
+        text: 'Achieved and Projected GHG Emissions Reductions in 2016 and 2020'
     },
 	      subtitle: {
     		text: 'Net baseline changes include policy reductions from programs predating GWSA, policy-related eductions that cannot be quanitified or direct attributed to policies, and reductions from non-policy changes (such as weather and economic conditions)'
