@@ -15,7 +15,8 @@
 			
 $(function () {  
       $('#container108').highcharts({
-      
+     	      
+	      
       chart: {
         type: 'column'
     },
@@ -99,11 +100,16 @@ $(function () {
     }]
     });
 });
+
+	var Highcharts = require('highcharts'),
+    		require('grouped-categories')(Highcharts);
+
 		</script>
 	</head>
 	<body>
 
 
+		
 <div  id="container108" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto"></div>
 
 	</body>
