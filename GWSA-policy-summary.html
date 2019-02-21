@@ -39,13 +39,30 @@ $(function () {
     },{
         categories: ['Buildings','Electricity','Transportation','Non-Energy','Total']
     }],
-    yAxis: {
+    yAxis: [{
+        allowDecimals: false,
+        min: -4.72,
+	max: 28.32,
+	tickInterval: 4.72,
+        title: {
+            text: 'GHG Reductions (Increases) below 1990 Emissions (MMTCO2e)'
+        }
+    },{
         allowDecimals: false,
         min: -5,
-        title: {
-            text: 'GHG Reductions (Increases) (MMTCO2e)'
-        }
-    },
+	max: 30,
+	opposite: true,
+	tickInterval: 5,
+	    title: {
+            text: 'GHG Reductions (Increases) as a Percentage of 1990 Emissions'
+        },
+	 labels: {
+    		format: '{value}%',
+      		style: {
+       			 color: 'black'
+      			}
+	    }
+    }],
     tooltip: {
         formatter: function () {
             return '<b>' + this.x + '</b><br/>' +
@@ -99,8 +116,14 @@ xAxis: 1
               pointPlacement: 0.25
     },{
         name: 'dummy',
-	data: [1,2,3,4,5,6,7,8,9,10],
+	data: [null,null,null,null,null,null,null,null,null,null],
         color: 'black',
+   	showInLegend: false,
+    },{
+        name: 'dummy2',
+	data: [null,null,null,null,null,null,null,null,null,null],
+        color: 'black',
+	yAxis: 1,
    	showInLegend: false,
     }
 	    ]
