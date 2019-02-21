@@ -36,7 +36,7 @@
 	var chart,
 	      chartOptions = {};
 chartOptions.chart1 = {
-  chart: {
+    chart: {
         zoomType: 'xy'
       },
       title: {
@@ -73,9 +73,10 @@ chartOptions.chart1 = {
         formatter: function(tooltip) {
           if (this.series.name == 'GWSA Emissions Goals') {
             return ['GWSA ' + this.x + ' Emissions Limit' + '<br>' +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
-
-          } else {
-            return tooltip.defaultFormatter.call(this, tooltip)
+          } else if (this.series.name == 'Paris Agreement Goal') {
+            return ['Paris Agreement ' + this.x + ' Emissions Goal <br> <b>69.4 - 71.4</b> MMTCO2e (28% to 26% below 2005 emissions)']
+            } else {
+            return ["New England Governors' and Eastern Canadian Premiers' 2030 Emissions Goal <br> <b>51.9 - 61.4</b> MMTCO2e (45% to 35% below 1990 emissions)"]
           }
         },
         shared: false
@@ -215,106 +216,292 @@ chartOptions.chart1 = {
           color: 'green'
         },
         {
-          name: 'Paris Agreement Goals',
+          name: 'Paris Agreement Goal',
+          type: 'scatter',
+					data: [{
+              x: 2025,
+              y: 70.445
+            }
+          ],
+          color: 'blue'
+        },
+        {
+          name: 'NEG/ECP Goals',
           type: 'column',
           stacking: 'normal',
-		data: [{
-              x: 2025,
-              y: 69.48
+					data: [{
+              x: 2030,
+              y: 9.445
             }
           ],
           color: 'green'
+        },
+        {
+          name: 'NEG/ECP Goals',
+          type: 'column',
+          stacking: 'normal',
+          showInLegend: false,
+					data: [{
+              x: 2030,
+              y: 51.95
+            }
+          ],
+          color: 'rgba(255,255,255,0)'
         }
       ]
 };
 chartOptions.chart2 = {
   chart: {
-    type: 'area'
-  },
-  title: {
-    text: 'Buildings Sector Energy Use'
-  },
-  subtitle: {
-    text: 'Source: U.S. EIA State Energy Data System'
-  },
-  xAxis: [{
-    categories: [
-      '1990', '1991', '1992', '1993', '1994', '1995',
-      '1996', '1997', '1998', '1999', '2000', '2001',
-      '2002', '2003', '2004', '2005', '2006', '2007',
-      '2008', '2009', '2010', '2011', '2012', '2013',
-      '2014', '2015', '2016', '2017', '2018', '2019', '2020'
-    ],
-    crosshair: true
-  }],
-  yAxis: [{ // Primary yAxis
-    title: {
-      text: 'Energy Consumption (mmBTU)',
-      style: {
-        color: 'black'
-      }
-    },
-    labels: {
-      format: '{value:.,0f}',
-      style: {
-        color: 'black'
-      }
-    }
-  }],
-  plotOptions: {
-    area: {
-      stacking: 'normal'
-    },
-    column: {
-      stacking: 'normal',
-    },
-  },
-  tooltip: {
-    shared: true
-  },
-  series: [{
-    name: 'Residential',
-    type: 'area',
-    data: [307, 296, 331, 334, 331, 305, 307, 298, 277, 295, 320, 321, 323, 338, 316, 310, 274, 289, 305, 304, 303, 302, 273, 285, 304, 302, 267],
-    label: {
-      enabled: false
-    },
-    color: 'blue',
-    marker: {
-      enabled: false
-    },
-    tooltip: {
-      valueSuffix: ' mmBTU'
-    }
-  }, {
-    name: 'Commercial',
-    type: 'area',
-    data: [196, 208, 209, 197, 216, 217, 224, 233, 212, 181, 194, 183, 185, 205, 198, 198, 174, 185, 189, 189, 205, 202, 186, 215, 224, 232, 225],
-    marker: {
-      enabled: false
-    },
-    color: 'green',
-    label: {
-      enabled: false
-    },
-    tooltip: {
-      valueSuffix: ' mmBTU'
-    }
-  }, {
-    name: 'Industrial',
-    type: 'area',
-    data: [143, 139, 165, 167, 150, 144, 145, 144, 139, 154, 157, 171, 169, 121, 119, 123, 122, 117, 105, 105, 116, 121, 111, 114, 113, 112, 110],
-    color: 'gray',
-    label: {
-      enabled: false
-    },
-    marker: {
-      enabled: false
-    },
-    tooltip: {
-      valueSuffix: ' mmBTU'
-    }
-  }]
+                type: 'line',
+                zoomType: 'xy',
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'MA GHG Emissions and Business-As-Usual (BAU) Projections for Major Sectors, 1990-2020',
+            },
+            subtitle: {
+                text: 'Source:   MassDEP (2017). Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990 through 2016'
+            },                
+            xAxis: {
+                labels: {
+                    formatter: function () {
+                        return this.value; // clean, unformatted number for year
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Million Metric Tons of CO2 equivalent (MMTCO2e)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                enabled: true,
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                    this.x + ': ' + this.y + ' MMTCO2e';
+                }
+            },
+            plotOptions: {
+                line: {
+                    pointStart: 1990,
+                    dataLabels: {
+                        enabled: false
+                    },
+                    enableMouseTracking: true
+                }
+            }
+           ,
+            series: [
+            <!--- Begin Transportation -->
+            {
+                name: 'Transportation',
+                data: [30.5,	27.6,	27.4,	27.7,	27.9,	28.4,	29.7,	30.1,	30.2,	30.9,	32.0,	31.5,	31.6,	31.6,	33.4,	33.9,	32.8,	33.1,	32.9,	30.1,	29.8,	29.9,	29.3,	30.4,	28.5,	29.3,	31.4,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+            color: '#2F7ED8'
+            }, {
+                name: 'Projected Transportation',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	33.9,	32.8,	33.1,	32.9,	34.5,	34.7,	35.0,	35.2,	35.5,	35.8,	36.0,	36.3,	36.5,	36.8,	37.1,	37.3],
+                marker: {
+                    enabled: false
+                },
+                color: '#2F7ED8',
+                dashStyle: 'dash'
+            },
+            <!-- End Transportation -->
+            <!--- Begin Electricity Consumption -->
+            {
+                name: 'Electricity Consumption',
+                data: [28.2,	28.3,	27.1,	25.5,	25.6,	24.7,	24.5,	28.6,	29.0,	27.5,	26.7,	26.2,	27.7,	29.2,	28.1,	29.5,	25.8,	27.4,	24.7,	22.2,	22.9,	18.1,	15.8,	16.3,	14.8,	15.6,	14.7,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#0d233a'
+            }, {
+                name: 'Projected Electricity Consumption',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	29.5,	25.8,	27.4,	24.7,	27.1,	27.0,	26.8,	26.7,	26.6,	26.5,	26.4,	26.3,	26.2,	26.1,	26.0,	26.0],
+                marker: {
+                    enabled: false
+                },
+                color: '#0d233a',
+                dashStyle: 'dash'
+            },
+            <!--- End Electricity Consumption -->
+            <!--- Begin Residential Consumption -->
+            {
+                name: 'Residential',
+                data: [15.3,	14.3,	16.4,	16.5,	16.3,	14.7,	14.5,	14.4,	13.2,	14.0,	15.6,	15.9,	15.9,	16.3,	14.9,	14.8,	12.8,	13.5,	14.4,	13.8,	13.6,	13.6,	11.8,	12.3,	13.6,	13.6,	11.4,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#8bbc21'
+            }, {
+                name: 'Projected Residential',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	14.8,	12.8,	13.5,	14.4,	14.2,	14.2,	14.1,	14.1,	14.0,	14.0,	14.0,	13.9,	13.9,	13.9,	13.8,	13.8],
+                marker: {
+                    enabled: false
+                },
+                color: '#8bbc21',
+                dashStyle: 'dash'
+            },
+            <!--- End Residential Consumption -->
+            <!--- Begin Commercial Consumption -->
+            {
+                name: 'Commercial',
+                data: [8.4,	9.2,	8.9,	8.0,	8.9,	9.0,	9.1,	9.5,	8.1,	6.2,	6.8,	5.7,	5.9,	7.1,	6.5,	6.7,	5.0,	5.3,	5.6,	5.8,	6.7,	6.3,	5.2,	6.8,	7.1,	7.6,	7.0,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#910000'
+            }, {
+               name: 'Projected Commercial',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	6.7,	5.0,	5.3,	5.6,	5.0,	4.9,	4.8,	4.7,	4.5,	4.4,	4.3,	4.2,	4.2,	4.1,	4.0,	3.9],
+                marker: {
+                    enabled: false
+                },
+                color: '#910000',
+                dashStyle: 'dash'
+            },
+            <!--- End Commercial Consumption -->
+            <!--- Begin Industrial (Fuel) Consumption -->
+            {
+                name: 'Industrial (Fuel)',
+                data: [5.8,	5.0,	6.8,	6.9,	6.0,	5.2,	5.2,	5.4,	5.3,	5.9,	5.7,	6.8,	6.7,	4.4,	4.3,	4.5,	4.4,	4.3,	4.0,	3.2,	3.7,	3.9,	3.4,	3.6,	3.5,	3.5,	3.4,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#1aadce',
+                visible: false
+            }, {
+                name: 'Projected Industrial (Fuel)',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	4.5,	4.4,	4.3,	4.0,	4.3,	4.3,	4.2,	4.1,	4.0,	3.9,	3.9,	3.8,	3.7,	3.7,	3.6,	3.5],
+                marker: {
+                    enabled: false
+                },
+                color: '#1aadce',
+                visible: false,
+                dashStyle: 'dash'
+            },
+            <!--- End Industrial (Fuel) Consumption -->
+           
+            <!--- Begin Industrial Processes Consumption -->
+            {
+                name: 'Industrial (Processes)',
+                data: [0.7,	0.6,	0.7,	0.8,	0.9,	1.3,	1.6,	1.8,	2.1,	2.3,	2.5,	2.6,	2.7,	2.8,	2.8,	2.8,	2.9,	2.9,	3.1,	3.3,	3.5,	3.6,	3.6,	3.6,	3.8,	3.9,	4.0,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#f28f43',
+                visible: false
+            }, {
+                name: 'Projected Industrial (Processes)',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	2.8,	2.9,	2.9,	3.1,	3.3,	3.5,	3.7,	3.8,	4.0,	4.2,	4.4,	4.6,	4.9,	5.1,	5.3,	5.6],
+                marker: {
+                    enabled: false
+                },
+                color: '#f28f43',
+                visible: false,
+                dashStyle: 'dash'
+            },
+            <!--- End Industrial Processes Consumption -->
+        <!--- Begin Agriculture Consumption -->
+            {
+                name: 'Agriculture',
+                data: [0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.4,	0.3,	0.3,	0.3,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	null,	null,	null,	null],
+                marker: {
+                    enabled: false
+                },
+                color: '#35ff64',
+                visible: false
+            }, {
+                name: 'Projected Agriculture',
+                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	0.3,	0.4,	0.4,	0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3],
+                marker: {
+                    enabled: false
+                },
+                color: '#35ff64',
+                visible: false,
+                dashStyle: 'dash'
+            },
+            <!--- End Agriculture Consumption -->
+                        
+            <!--- Begin Waste Consumption -->
+            {
+                name: 'Waste',
+                data: [2.7,	3.0,	2.9,	2.8,	2.8,	2.7,	2.3,	2.0,	1.7,	1.7,	1.1,	0.7,	1.1,	1.6,	1.3,	1.1,	1.0,	0.9,	0.8,	0.9,	0.9,	0.9,	1.0,	0.9,	0.8,	0.8,	0.8,	null,	null,	null,	null],
+                visible: false,
+                marker: {
+                    enabled: false
+                },
+                color: '#77a1e5'
+            }, {
+                name: 'Projected Waste',
+                data: [{
+                    x: 2005,
+                    y: 1.1
+                }, {
+                    x: 2006,
+                    y: 1.0
+                }, {
+                    x: 2007,
+                    y: 0.9
+                }, {
+                    x: 2008,
+                    y: 0.8
+                }, {
+                    x: 2009,
+                    y: 0.8
+                }, {
+                    x: 2010,
+                    y: 0.8
+                }, {
+                    x: 2011,
+                    y: 0.8
+                }, {
+                    x: 2012,
+                    y: 0.8
+                }, {
+                    x: 2013,
+                    y: 0.8
+                }, {
+                    x: 2014,
+                    y: 0.8
+                }, {
+                    x: 2015,
+                    y: 0.8
+                }, {
+                    x: 2016,
+                    y: 0.8
+                }, {
+                    x: 2017,
+                    y: 0.8
+                }, {
+                    x: 2018,
+                    y: 0.8
+                }, {
+                    x: 2019,
+                    y: 0.8
+                }, {
+                    x: 2020,
+                    y: 0.8
+                }],
+                visible: false,
+                marker: {
+                    enabled: false
+                },
+                color: '#77a1e5',
+                dashStyle: 'dash'
+            }
+            <!--- End Waste Consumption -->
+            ]
 };
 </script>
 <script type="text/javascript">	
