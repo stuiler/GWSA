@@ -72,7 +72,7 @@ chartOptions.chart1 = {
       tooltip: {
         formatter: function(tooltip) {
           if (this.series.name == 'GWSA Emissions Goals') {
-            return ['<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
+            return ['GWSA ' + this.x + ' Emissions Limit' + <br> +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
 
           } else {
             return tooltip.defaultFormatter.call(this, tooltip)
