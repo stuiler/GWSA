@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	
+		<title>Buildings Sector Energy Use</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<button class="chart-update selected" data-chart-name="chart1">GHG Emissions Overview</button>
+<button class="chart-update" data-chart-name="chart2">GHG Emissions by Sector</button>
+
+<style>
+	button.chart-update {
+ 		 cursor: pointer;
+		 background-color: rgba(0, 155, 255, 1);
+		 border: none;
+		 border-radius: 5px;
+		 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+		 color: rgba(255, 255, 255, 0.9);
+ 		 font-weight: bold;
+ 		 padding: 0.5em;
+ 		 margin: 0.5em;
+		};
+	button.selected {
+  background-color: rgba(255, 99, 0, 1);
+}
+</style>
+	
+<script type="text/javascript">	
+	var chart,
+	      chartOptions = {};
+chartOptions.chart1 = {
+  chart: {
+      zoomType: 'xy'
+    },
+  title: {
+    text: 'Buildings Sector Energy Use'
+  },
+  subtitle: {
+    text: 'Source: MassDEP (2018). Massachusetts Annual Greenhouse Gas Emissions Inventory: 1990-2016'
+  },
+  xAxis: {
+      labels: {
+        formatter: function() {
+          return this.value
+        }
+      }
+    },
+  yAxis: [{ // Primary yAxis
+    title: {
+      text: 'GHG Emissions (MMTCO2e)',
+      style: {
+        color: 'black'
+      }
+    },
+    labels: {
+      format: '{value:.,0f}',
+      style: {
+        color: 'black'
+      }
+    }
+  }],
+  credits: {
+	  enabled: false
+  },
+  tooltip: {
+    formatter: function(tooltip) {
+      if (this.series.name == 'blue') {     
+			return ['<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100*this.y/29.9) + '%' + '</b>' + ' below 1990 emissions)']    
+      
+      } else {
+            return tooltip.defaultFormatter.call(this, tooltip)}
+        },
+      shared: false
+},
+  series: [{
+    name: 'Mass. Historical GHG Emissions',
+    type: 'spline',
+    data: data:
+[{x: 1990, y: 94.5},
+{x: 1991, y: 92.8},
+{x: 1992, y: 95.1},
+{x: 1993, y: 93},
+{x: 1994, y: 93.2},
+{x: 1995, y: 90.8},
+{x: 1996, y: 91.6},
+{x: 1997, y: 96.2},
+{x: 1998, y: 93.8},
+{x: 1999, y: 92.7},
+{x: 2000, y: 94.4},
+{x: 2001, y: 93.5},
+{x: 2002, y: 95.3},
+{x: 2003, y: 96.6},
+{x: 2004, y: 94.7},
+{x: 2005, y: 96.5},
+{x: 2006, y: 87.8},
+{x: 2007, y: 90.5},
+{x: 2008, y: 88.2},
+{x: 2009, y: 81.8},
+{x: 2010, y: 83.3},
+{x: 2011, y: 78.5},
+{x: 2012, y: 72},
+{x: 2013, y: 75.8},
+{x: 2014, y: 74},
+{x: 2015, y: 76.1},
+{x: 2016, y: 74.2}
+{x: 2016, y: 74.2}],
+    color: 'black',
+    label: {
+      enabled: false
+    },
+    marker: {
+      enabled: false
+    }, {
+    name: 'GWSA Emissions Goals',
+    type: 'scatter',
+    data: [
+      {x: 2020, y: 70.8},
+      {x: 2050, y: 18.8},
+    ],
+    color: 'green',
+    label: {
+      enabled: false
+    },
+    marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' MMTCO2e'
+    }
+  }]
+};
+chartOptions.chart2 = {
+  chart: {
+    type: 'area'
+  },
+  title: {
+    text: 'Buildings Sector Energy Use'
+  },
+  subtitle: {
+    text: 'Source: U.S. EIA State Energy Data System'
+  },
+  xAxis: [{
+    categories: [
+      '1990', '1991', '1992', '1993', '1994', '1995',
+      '1996', '1997', '1998', '1999', '2000', '2001',
+      '2002', '2003', '2004', '2005', '2006', '2007',
+      '2008', '2009', '2010', '2011', '2012', '2013',
+      '2014', '2015', '2016', '2017', '2018', '2019', '2020'
+    ],
+    crosshair: true
+  }],
+  yAxis: [{ // Primary yAxis
+    title: {
+      text: 'Energy Consumption (mmBTU)',
+      style: {
+        color: 'black'
+      }
+    },
+    labels: {
+      format: '{value:.,0f}',
+      style: {
+        color: 'black'
+      }
+    }
+  }],
+  plotOptions: {
+    area: {
+      stacking: 'normal'
+    },
+    column: {
+      stacking: 'normal',
+    },
+  },
+  tooltip: {
+    shared: true
+  },
+  series: [{
+    name: 'Residential',
+    type: 'area',
+    data: [307, 296, 331, 334, 331, 305, 307, 298, 277, 295, 320, 321, 323, 338, 316, 310, 274, 289, 305, 304, 303, 302, 273, 285, 304, 302, 267],
+    label: {
+      enabled: false
+    },
+    color: 'blue',
+    marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' mmBTU'
+    }
+  }, {
+    name: 'Commercial',
+    type: 'area',
+    data: [196, 208, 209, 197, 216, 217, 224, 233, 212, 181, 194, 183, 185, 205, 198, 198, 174, 185, 189, 189, 205, 202, 186, 215, 224, 232, 225],
+    marker: {
+      enabled: false
+    },
+    color: 'green',
+    label: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' mmBTU'
+    }
+  }, {
+    name: 'Industrial',
+    type: 'area',
+    data: [143, 139, 165, 167, 150, 144, 145, 144, 139, 154, 157, 171, 169, 121, 119, 123, 122, 117, 105, 105, 116, 121, 111, 114, 113, 112, 110],
+    color: 'gray',
+    label: {
+      enabled: false
+    },
+    marker: {
+      enabled: false
+    },
+    tooltip: {
+      valueSuffix: ' mmBTU'
+    }
+  }]
+};
+</script>
+<script type="text/javascript">	
+	$(function() {
+  $('#container109').highcharts(chartOptions.chart1);
+  chart = $('#container109').highcharts();
+  $(document).on('click', '.chart-update', function() {
+    $('button').removeClass('selected');
+    $(this).addClass('selected');
+    chart.destroy();
+    $('#container109').highcharts(chartOptions[$(this).data('chartName')]);
+    chart = $('#container109').highcharts();
+	});
+		});
+	</script>
+
+	
+	</head>
+	<body>
+		
+<div  id="container109" style="min-width: 400px; max-width:100%; height: 700px; margin: 0 auto">
+
+
+</div>
+
+	</body>
+</html>
