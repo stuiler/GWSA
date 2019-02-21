@@ -37,8 +37,7 @@ $(function () {
     xAxis: [{
         categories: ['2016','2020','2016','2020','2016','2020','2016','2020','2016','2020']
     },{
-        categories: ['Buildings','dummy','Electricity','dummy','Transportation','dummy','Non-Energy','dummy','Total'],
-	tickPositions: [0, 2, 4, 6, 8]
+        categories: ['Buildings','dummy','Electricity','dummy','Transportation','dummy','Non-Energy','dummy','Total']
     }],
     yAxis: {
         allowDecimals: false,
@@ -64,13 +63,25 @@ $(function () {
 
     series: [{
         name: 'GHG Reductions from GWSA Policies as of 2016',
-        data: [4.0, 4.0, 2.4, 2.4, 3.2, 3.2, 2.1, 2.1, 11.6, 11.6],
+        data: [4.0, null, 2.4, null, 3.2, null, 2.1, null, 11.6, null],
         color: '#2f7ed8',
         stack: '2016'
     }, {
         name: 'Net Baseline Changes from 1990',
-        data: [3.5, 0.6, 11.1, 11.2, -4.4, -4.3, -2.0, -2.3, 8.2, 5.3],
+        data: [3.5, null, 11.1, null, -4.4, null, -2.0, null, 8.2, null],
         color: 'url(#highcharts-default-pattern-1)',
+	stack: '2016'
+    },
+	{
+        name: 'Net Baseline Changes from 1990',
+        data: [null, 0.6, null, 11.2, null, -4.3, null, -2.3, null, 5.3],
+        color: 'url(#highcharts-default-pattern-1)',
+	stack: '2020'
+    },{
+        name: 'GHG Reductions from GWSA Policies as of 2016',
+        data: [null, 4.0, null, 2.4, null, 3.2, null, 2.1, null, 11.6],
+        color: '#2f7ed8',
+        stack: '2020'
     }, {
         name: 'Additional Reductions Projected for 2020',
         data: [null, 2.8, null, 2.3, null, 1.8, null, 0.1, null, 7.1],
