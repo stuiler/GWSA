@@ -96,7 +96,8 @@ $(function () {
         color: 'url(#highcharts-default-pattern-1)',
 	stack: '2016',
 	xAxis: 1,	
-        pointPlacement: -0.05
+        pointPlacement: -0.05,
+	id: 'baseline'
 
     },{
         name: 'Additional Reductions Projected for 2020',
@@ -120,7 +121,8 @@ xAxis: 1
 	showInLegend: false,
 	stack: '2020',
 	xAxis: 1,
-              pointPlacement: 0.25
+              pointPlacement: 0.25,
+	    linkedTo: 'baseline'
     },{
         name: 'dummy',
 	data: [null,null,null,null,null,null,null,null,null,null],
