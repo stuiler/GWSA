@@ -88,7 +88,8 @@ $(function () {
         color: '#2f7ed8',
         stack: '2016',
 	xAxis: 1,
-        pointPlacement: -0.05
+        pointPlacement: -0.05,
+	    id: '2016'
 
     }, {
         name: 'Net Baseline Changes from 1990',
@@ -113,7 +114,8 @@ xAxis: 1
 	showInLegend: false,
         stack: '2020',
 	xAxis: 1,
-            pointPlacement: 0.25
+            pointPlacement: 0.25,
+	    	    linkedTo: '2016'
     }, {
         name: 'Net Baseline Changes from 1990',
         data: [0.6, 11.2, -4.3, -2.3, 5.3],
