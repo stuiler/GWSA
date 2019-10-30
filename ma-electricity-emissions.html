@@ -38,7 +38,7 @@ $(function () {
     crosshair: true
   }],
   yAxis: [{ // Primary yAxis
-    gridLineWidth: 0,
+    gridLineWidth: 1,
     title: {
       text: 'GHG Emissions (MMTCO2e)',
       style: {
@@ -47,6 +47,22 @@ $(function () {
     },
     labels: {
       format: '{value:,.of} MMTCO2e',
+      style: {
+        color: 'black'
+      }
+    }
+  },
+  {// Secondary yAxis
+    gridLineWidth: 1,
+    opposite: true,
+    title: {
+      text: 'Combined RPS & CES Requirement',
+      style: {
+        color: 'black'
+      }
+    },
+    labels: {
+      format: '{value:,.of} %',
       style: {
         color: 'black'
       }
