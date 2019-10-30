@@ -75,15 +75,18 @@ chartOptions.chart1 = {
             return ['GWSA ' + this.x + ' Emissions Limit' + '<br>' +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
           } else if (this.series.name == 'Paris Agreement Goal') {
             return ['Paris Agreement ' + this.x + ' Emissions Goal <br> <b>69.4 - 71.4</b> MMTCO2e (28% to 26% below 2005 emissions)']
-            } else {
+            } else if (this.series.name == 'NEG/ECP Goals') {
             return ["New England Governors' and Eastern Canadian Premiers' 2030 Emissions Goal <br> <b>51.9 - 61.4</b> MMTCO2e (45% to 35% below 1990 emissions)"]
+          } else {
+            return ['<b>' + this.series.name + '</b><br/>' +
+                    this.x + ': ' + this.y + ' MMTCO2e']
           }
         },
         shared: false
       },
       series: [{
           name: 'Mass. Historical GHG Emissions',
-          type: 'spline',
+          type: 'line',
           data: [{
               x: 1990,
               y: 94.5
