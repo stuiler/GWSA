@@ -2,7 +2,7 @@
 <html>
 <head>
 
-		<title>Mass. Vehicle-Miles Traveled, Fuel Use, Fuel Economy Standards, and ZEV Placements</title>
+		<title>Mass. Vehicle-Miles Traveled, Fuel Use, and Fuel Economy Standards</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -20,7 +20,7 @@ $(function () {
             enabled: false
         },
 	     title: {
-    text: 'Mass. Vehicle-Miles Traveled, Fuel Use, Fuel Economy Standards, and ZEV Placements'
+    text: 'Mass. Vehicle-Miles Traveled, Fuel Use, and Fuel Economy Standards'
   },
   subtitle: {
     text: 'Source: U.S. EIA, U.S. FHWA, MassDOT, MAPC'
@@ -72,21 +72,7 @@ $(function () {
     },
           min: 0,
     opposite: true
-  },{ // Quad Axis
-    	title: {
-      		text: 'Number of Vehicles',
-      		style: {
-        	color: 'green'
-      			}
-    		},
-   	labels: {
-      		style: {
-        	color: 'green'
-      			}
-    		},
-       	min: 0,
-    	opposite: false
-  	}],
+  }],
   tooltip: {
     	shared: true
   	},
@@ -181,38 +167,6 @@ color: 'red',
     color: 'blue',
     tooltip: {
       valueSuffix: ' MPG'
-    }
-  },{
-    name: 'Total BEVs and PHEVs on the road',
-    yaxis: 3,
-    type: 'spline',
-    data: [3333,4664,6051,8555,12699,17747],
-    label: {
-      enabled: false
-    },
-    color: 'black',
-    marker: {
-      enabled: false
-    },
-    tooltip: {
-      valueSuffix: ' vehicles'
-    }
-  }, {
-    name: 'Est. ZEV Placements in MA under MA & CA ZEV Regulation',
-    yaxis: 3,
-    type: 'spline',
-    data: [null,null,null,null,null,17747,25170,36042,51932,75124,108944,158239,230075],
-    marker: {
-      enabled: false
-    },
-    color: 'black',
-    label: {
-      enabled: false
-    },
-    dashStyle: 'shortdot',
-	visible: false,	  
-    tooltip: {
-      valueSuffix: ' vehicles'
     }
   }
   ]
