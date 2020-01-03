@@ -11,15 +11,7 @@
 
 <script type="text/javascript">	
 			
-$(function () {  
-
-	Highcharts.setOptions({
-	lang: {
-  	thousandsSep: ','
-  }
-}),{
-	
-	$('#container105').highcharts({
+$(function () { $('#container105').highcharts({
          chart: {
                 zoomType: 'xy',
             },
@@ -90,7 +82,8 @@ plotOptions: {
   },
 },
 tooltip: {
-  shared: true
+  	format: {point.y:,.0f},
+	shared: true
 },
 series: [{
   name: 'Electricity Savings',
