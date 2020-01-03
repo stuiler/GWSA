@@ -12,6 +12,13 @@
 <script type="text/javascript">	
 			
 $(function () {
+	
+	Highcharts.setOptions({
+	lang: {
+		thousandsSep: ','
+	}
+	});
+	
 	$('#container105').highcharts({
          chart: {
                 zoomType: 'xy',
@@ -67,7 +74,7 @@ $(function () {
     },
     opposite: true,
     labels: {
-      format: '{value:.,0f}',
+      format: '{value:,.0f}',
       style: {
         color: 'black'
       }
