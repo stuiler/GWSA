@@ -71,7 +71,7 @@ chartOptions.chart1 = {
       },
       tooltip: {
         formatter: function(tooltip) {
-          if (this.series.name == 'GWSA Emissions Goals') {
+          if (this.series.name == 'GWSA Emissions Limits') {
             return ['GWSA ' + this.x + ' Emissions Limit' + '<br>' +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
           } else if (this.series.name == 'Paris Agreement Goal') {
             return ['Paris Agreement ' + this.x + ' Emissions Goal <br> <b>69.4 - 71.4</b> MMTCO2e (28% to 26% below 2005 emissions)']
@@ -205,7 +205,7 @@ chartOptions.chart1 = {
           }
         },
         {
-          name: 'GWSA Emissions Goals',
+          name: 'GWSA Emissions Limits',
           type: 'scatter',
           data: [{
               x: 2020,
@@ -216,7 +216,7 @@ chartOptions.chart1 = {
               y: 18.8
             }
           ],
-          color: 'green'
+          color: 'peru'
         },
         {
           name: 'Paris Agreement Goal',
@@ -226,7 +226,7 @@ chartOptions.chart1 = {
               y: 70.445
             }
           ],
-          color: 'blue'
+          color: 'steelblue'
         },
         {
           name: 'NEG/ECP Goals',
@@ -249,7 +249,7 @@ chartOptions.chart1 = {
               y: 51.95
             }
           ],
-          color: 'rgba(255,255,255,0)'
+          color: 'olive'
         }
       ]
 };
