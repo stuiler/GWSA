@@ -2,7 +2,7 @@
 <html>
 <head>
 
-		<title>2016 MA & US GHG Emissions by Sector</title>
+		<title>MA & US GHG Emissions by Fuel</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -22,10 +22,10 @@
                 text: 'MA CO2 Emissions by Fuel Combusted' 
             },
             subtitle: {
-                text: '(86% of Total GHG Emissions)'
+                text: '(87% of Total GHG Emissions)'
             },
             xAxis: {
-                categories: ['1990', '2000', '2010', '2016']
+                categories: ['1990', '2000', '2010', '2017']
             },
             yAxis: [{ // Primary yAxis
             	labels: {
@@ -84,21 +84,21 @@
             },
             series: [{
                 name: 'Coal',
-                data: [13, 13, 11, 3],
+                data: [13, 13, 11, 2],
                 color: 'peru'
             }, {
                 name: 'Natural Gas',
-                data: [17, 23, 33, 36],
+                data: [17, 23, 33, 38],
                 color: 'steelblue' 
             }, {
                 name: 'Petroleum',
-                data: [70, 64, 57, 61],
+                data: [70, 64, 56, 61],
                 color: 'darkseagreen' 
             }, {
                 name: 'Total CO2 Emissions (million metric tons)',
                 color: 'black',
                 type: 'line',
-                data: [83.0, 81.9, 71.7, 63.8],
+                data: [83.0, 81.8, 71.6, 63.9],
                 yAxis: 1
             }]
         });
