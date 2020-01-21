@@ -94,10 +94,21 @@ tooltip: {
 	shared: true
 },
 series: [{
-  name: 'Electricity Savings',
+  name: 'Cumulative Electricity Savings, Historical and Planned',
   type: 'column',
   yAxis: 2,
-  data: [2154920, 5067887, 8931094, 12766956, 17163723, 21463952, 25498125, 29331050, 32574643, 35473853, 38708589, 40441230],
+  data: [4659802,
+7404941,
+11111565,
+14801336,
+19061799,
+23234858,
+27150380,
+30872604,
+34012913,
+36815759,
+39960587,
+41609344],
   color: 'peru',
   label: {
     enabled: false
@@ -109,10 +120,21 @@ series: [{
     valueSuffix: ' mmBTU'
   }
 }, {
-  name: 'Natural Gas Savings',
+  name: 'Cumulative Natural Gas Savings, Historical and Planned',
   type: 'column',
   yAxis: 2,
-  data: [119201, 216377, 419358, 595667, 840735, 941877, 1074281, 1181568, 1299546, 1477516, 1545806, 1731107],
+  data: [1329420,
+2293215,
+4315233,
+6071008,
+8514600,
+9519639,
+10837562,
+11904706,
+13079043,
+14853452,
+15531582,
+17379813],
   color: 'steelblue',
   label: {
     enabled: false
@@ -124,10 +146,21 @@ series: [{
     valueSuffix: ' mmBTU'
   }
 }, {
-  name: 'Petroleum Savings',
+  name: 'Cumulative Petroleum Savings, Histrical and Projected',
   type: 'column',
   yAxis: 2,
-  data: [232075, 574882, 852509, 1295840, 1718833, 2074775, 1738824, 1516310, 1581252, 1560988, 1682174, 2063559],
+  data: [632816,
+953102,
+1209473,
+1632743,
+2036801,
+2374873,
+2022057,
+1783625,
+1833545,
+1799102,
+1906905,
+2275661],
   color: 'lightskyblue',
   label: {
     enabled: false
@@ -141,7 +174,18 @@ series: [{
 }, {
   name: 'Population',
   type: 'line',
-  data: [0, 0.6, 1.2, 2, 2.8, 3.2, 3.6],
+  data: [0,
+0.6,
+1.2,
+2,
+2.8,
+3.2,
+3.6,
+4.2,
+null,
+null,
+null,
+null],
   color: 'black',
   label: {
     enabled: false
@@ -156,7 +200,18 @@ series: [{
   name: 'Mass Save<sup>(R)</sup> Cumulative Savings as a Percent of Total Energy Use',
   type: 'line',
   yAxis: 1,
-  data: [0.4, 0.9, 1.8, 2.4, 3.1, 3.8, 4.7, ],
+  data: [0.6,
+1,
+1.7,
+2.1,
+2.8,
+3.2,
+3.7,
+4.1,
+null,
+null,
+null,
+null],
   marker: {
     enabled: false
   },
