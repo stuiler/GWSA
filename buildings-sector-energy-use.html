@@ -88,7 +88,7 @@ chartOptions.chart1 = {
    series: [{
     name: 'Coal',
     type: 'area',
-    data: [3, 3, 5, 4, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 3, 2, 3, 2, 1, 2, 2, 2, 2, 2, 1, 0],
+    data: [3,3,5,4,2,2,2,2,2,2,2,2,3,3,2,3,2,3,2,1,2,2,2,2,2,1,0,0],
     color: 'gray',
     label: {
       enabled: false
@@ -97,12 +97,12 @@ chartOptions.chart1 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }, {
     name: 'Natural Gas',
     type: 'area',
-    data: [209, 219, 265, 268, 276, 258, 279, 289, 259, 264, 264, 261, 269, 239, 219, 226, 201, 227, 253, 251, 250, 265, 240, 272, 285, 285, 271],
+    data: [209,219,265,268,276,258,279,288,259,264,264,261,269,239,219,226,201,227,253,251,250,265,240,272,285,284,271,286],
     color: 'peru',
     label: {
       enabled: false
@@ -111,12 +111,12 @@ chartOptions.chart1 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }, {
     name: 'Petroleum',
     type: 'area',
-    data: [252, 240, 250, 241, 230, 216, 200, 195, 180, 172, 204, 214, 204, 214, 199, 198, 168, 158, 144, 145, 161, 149, 120, 128, 142, 147, 120],
+    data: [251,240,250,241,230,216,200,195,180,172,204,213,204,214,199,198,168,158,144,145,160,149,119,127,141,147,120,128],
     color: 'steelblue',
     label: {
       enabled: false
@@ -125,12 +125,12 @@ chartOptions.chart1 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trllion BTU'
     }
   }, {
     name: 'Renewable Thermal',
     type: 'area',
-    data: [28, 29, 31, 32, 32, 32, 33, 28, 22, 24, 25, 20, 18, 19, 21, 9, 10, 10, 10, 17, 18, 20, 20, 25, 28, 27, 29],
+    data: [10,10,11,11,12,13,13,13,10,10,10,8,7,7,8,6,6,7,6,7,9,11,12,14,16,18,23,25],
     color: 'lightskyblue',
     label: {
       enabled: false
@@ -139,12 +139,12 @@ chartOptions.chart1 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }, {
     name: 'Electricity',
     type: 'area',
-    data: [155, 152, 153, 154, 157, 158, 161, 162, 165, 168, 176, 178, 182, 188, 190, 194, 189, 194, 190, 184, 194, 188, 188, 187, 185, 185, 181],
+    data: [154,152,153,154,156,158,161,163,165,168,176,178,182,188,190,194,189,194,190,184,194,188,188,187,185,185,181,178],
     color: 'darkseagreen',
     label: {
       enabled: false
@@ -153,7 +153,7 @@ chartOptions.chart1 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }]
 };
@@ -207,7 +207,7 @@ chartOptions.chart2 = {
     name: 'Residential',
 
     type: 'area',
-    data: [307, 296, 331, 334, 331, 305, 307, 298, 277, 295, 320, 321, 323, 338, 316, 310, 274, 289, 305, 304, 303, 302, 273, 285, 304, 302, 267],
+    data: [289,277,311,314,311,286,286,283,265,281,305,309,311,325,303,306,271,286,301,294,295,293,264,274,292,293,259,275],
     label: {
       enabled: false
     },
@@ -216,12 +216,12 @@ chartOptions.chart2 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }, {
     name: 'Commercial',
     type: 'area',
-    data: [196, 208, 209, 197, 216, 217, 224, 233, 212, 181, 194, 183, 185, 205, 198, 198, 174, 185, 189, 189, 205, 202, 186, 215, 224, 232, 225],
+    data: [196,208,208,197,216,217,224,233,212,181,194,183,185,205,198,198,174,185,189,189,205,202,186,215,224,232,225,232],
     marker: {
       enabled: false
     },
@@ -230,12 +230,12 @@ chartOptions.chart2 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }, {
     name: 'Industrial',
     type: 'area',
-    data: [143, 139, 165, 167, 150, 144, 145, 144, 139, 154, 157, 171, 169, 121, 119, 123, 122, 117, 105, 105, 116, 121, 111, 114, 113, 112, 110],
+    data: [142,139,165,166,150,144,144,144,139,154,157,170,169,121,118,123,122,117,105,105,115,120,111,113,113,112,110,110],
     color: 'gray',
     label: {
       enabled: false
@@ -244,7 +244,7 @@ chartOptions.chart2 = {
       enabled: false
     },
     tooltip: {
-      valueSuffix: ' mmBTU'
+      valueSuffix: ' trillion BTU'
     }
   }]
 };
