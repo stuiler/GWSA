@@ -72,7 +72,7 @@ chartOptions.chart1 = {
       tooltip: {
         formatter: function(tooltip) {
           if (this.series.name == 'GWSA Emissions Limits') {
-            return ['GWSA ' + this.x + ' Emissions Limit' + '<br>' +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.45)) + '%' + '</b>' + ' below 1990 emissions)']
+            return ['GWSA ' + this.x + ' Emissions Limit' + '<br>' +'<b>' + this.y + '</b>' + ' MMTCO2e (' + '<b>' + Math.round(100 - (100 * this.y / 94.29)) + '%' + '</b>' + ' below 1990 emissions)']
           } else if (this.series.name == 'Paris Agreement Goal') {
             return ['Paris Agreement ' + this.x + ' Emissions Goal <br> <b>69.4 - 71.4</b> MMTCO2e (28% to 26% below 2005 emissions)']
             } else if (this.series.name == 'NEG/ECP Goals') {
@@ -88,34 +88,35 @@ chartOptions.chart1 = {
           name: 'Mass. Historical GHG Emissions',
           type: 'line',
           data: [
-		  { x: 1990, y: 94.5 },
-{ x: 1991, y: 92.8 },
-{ x: 1992, y: 95.1 },
-{ x: 1993, y: 92.9 },
-{ x: 1994, y: 93.1 },
-{ x: 1995, y: 90.7 },
+		  { x: 1990, y: 94.3 },
+{ x: 1991, y: 92.5 },
+{ x: 1992, y: 94.8 },
+{ x: 1993, y: 92.7 },
+{ x: 1994, y: 92.7 },
+{ x: 1995, y: 90.5 },
 { x: 1996, y: 91.6 },
-{ x: 1997, y: 96.2 },
-{ x: 1998, y: 93.8 },
-{ x: 1999, y: 92.6 },
-{ x: 2000, y: 94.3 },
-{ x: 2001, y: 93.4 },
-{ x: 2002, y: 95.2 },
-{ x: 2003, y: 96.3 },
-{ x: 2004, y: 94.5 },
-{ x: 2005, y: 96.2 },
-{ x: 2006, y: 87.4 },
-{ x: 2007, y: 90.1 },
-{ x: 2008, y: 87.8 },
-{ x: 2009, y: 81.5 },
-{ x: 2010, y: 83.0 },
-{ x: 2011, y: 78.3 },
-{ x: 2012, y: 71.8 },
+{ x: 1997, y: 96.4 },
+{ x: 1998, y: 93.7 },
+{ x: 1999, y: 92.7 },
+{ x: 2000, y: 94.5 },
+{ x: 2001, y: 93.5 },
+{ x: 2002, y: 95.4 },
+{ x: 2003, y: 96.7 },
+{ x: 2004, y: 94.9 },
+{ x: 2005, y: 96.7 },
+{ x: 2006, y: 88.1 },
+{ x: 2007, y: 90.8 },
+{ x: 2008, y: 88.5 },
+{ x: 2009, y: 82.2 },
+{ x: 2010, y: 83.3 },
+{ x: 2011, y: 78.5 },
+{ x: 2012, y: 71.9 },
 { x: 2013, y: 75.6 },
-{ x: 2014, y: 73.7 },
-{ x: 2015, y: 75.7 },
-{ x: 2016, y: 73.9 },
-{ x: 2017, y: 73.3 }
+{ x: 2014, y: 73.8 },
+{ x: 2015, y: 75.9 },
+{ x: 2016, y: 73.8 },
+{ x: 2017, y: 73.0 },
+{ x: 2018, y: 73.2}
           ],
           color: 'black',
           label: {
@@ -132,9 +133,17 @@ chartOptions.chart1 = {
               x: 2020,
               y: 70.8
             },
+		{
+              x: 2030,
+              y: 47.2
+            },
+		 {
+              x: 2040,
+              y: 23.6
+            },
             {
               x: 2050,
-              y: 18.8
+              y: 14.1
             }
           ],
           color: 'peru'
@@ -148,29 +157,6 @@ chartOptions.chart1 = {
             }
           ],
           color: 'steelblue'
-        },
-        {
-          name: 'NEG/ECP Goals',
-          type: 'column',
-          stacking: 'normal',
-					data: [{
-              x: 2030,
-              y: 9.445
-            }
-          ],
-          color: 'olive'
-        },
-        {
-          name: 'NEG/ECP Goals',
-          type: 'column',
-          stacking: 'normal',
-          showInLegend: false,
-					data: [{
-              x: 2030,
-              y: 51.95
-            }
-          ],
-          color: 'rgba(255,255,255,0)'
         }
       ]
 };
@@ -226,204 +212,67 @@ chartOptions.chart2 = {
             <!--- Begin Transportation -->
             {
                 name: 'Transportation',
-                data: [30.5,	27.6,	27.4,	27.6,	27.8,	28.3,	29.7,	30.1,	30.1,	30.8,	32.0,	31.5,	31.6,	31.6,	33.4,	33.8,	32.8,	33.1,	32.8,	30.1,	29.7,	29.9,	29.3,	30.4,	28.5,	29.3,	31.3,	30.4,	null,	null,	null],
-                marker: {
+                data: [30.5,29.3,29.1,29.4,29.6,30.1,31.4,31.8,31.9,32.5,33.6,33,32.9,32.9,34.6,34.9,33.7,33.9,33.5,30.7,30.3,30.4,29.7,30.7,28.8,29.5,31.5,30.5,30.8]
+               marker: {
                     enabled: false
                 },
             color: '#2F7ED8'
-            }, {
-                name: 'Projected Transportation',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	33.9,	32.8,	33.1,	32.9,	34.5,	34.7,	35.0,	35.2,	35.5,	35.8,	36.0,	36.3,	36.5,	36.8,	37.1,	37.3],
-                marker: {
-                    enabled: false
-                },
-                color: '#2F7ED8',
-                dashStyle: 'dash'
-            },
+            }, 
             <!-- End Transportation -->
             <!--- Begin Electricity Consumption -->
             {
                 name: 'Electricity Consumption',
-                data: [28.2,	28.3,	27.1,	25.5,	25.6,	24.7,	24.5,	28.6,	29.0,	27.5,	26.7,	26.2,	27.7,	29.2,	28.1,	29.5,	25.8,	27.4,	24.7,	22.2,	22.9,	18.1,	15.8,	16.3,	14.8,	15.6,	14.7,	13.6,	null,	null,	null],
-                marker: {
+                data: [28,28.1,26.9,25.3,25.4,24.6,24.4,28.5,29,27.5,26.7,26.2,27.8,29.3,28.2,29.6,25.8,27.5,24.8,22.2,22.9,18.1,15.8,16.3,14.8,15.6,14.7,13.6,12.2]
+		marker: {
                     enabled: false
                 },
                 color: '#0d233a'
-            }, {
-                name: 'Projected Electricity Consumption',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	29.5,	25.8,	27.4,	24.7,	27.1,	27.0,	26.8,	26.7,	26.6,	26.5,	26.4,	26.3,	26.2,	26.1,	26.0,	26.0],
-                marker: {
-                    enabled: false
-                },
-                color: '#0d233a',
-                dashStyle: 'dash'
             },
             <!--- End Electricity Consumption -->
-            <!--- Begin Residential Consumption -->
+            <!--- Begin Buildings Consumption -->
             {
-                name: 'Residential',
-                data: [15.3,	14.3,	16.4,	16.5,	16.3,	14.7,	14.5,	14.4,	13.2,	14.0,	15.6,	15.9,	15.9,	16.3,	14.9,	14.8,	12.8,	13.5,	14.4,	13.8,	13.6,	13.6,	11.8,	12.3,	13.6,	13.6,	11.4,	12.4,	null,	null,	null],
+                name: 'Buildings',
+                data: [29.5,29,32.6,32,31.7,29.5,29.4,29.7,26.9,26.5,28.5,28.9,28.9,28.3,26.2,26.4,22.6,23.6,24.3,23.3,24.4,24.2,20.7,22.9,24.6,24.9,21.9,23.3,24.9]
                 marker: {
                     enabled: false
                 },
                 color: '#8bbc21'
-            }, {
-                name: 'Projected Residential',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	14.8,	12.8,	13.5,	14.4,	14.2,	14.2,	14.1,	14.1,	14.0,	14.0,	14.0,	13.9,	13.9,	13.9,	13.8,	13.8],
-                marker: {
-                    enabled: false
-                },
-                color: '#8bbc21',
-                dashStyle: 'dash'
             },
-            <!--- End Residential Consumption -->
-            <!--- Begin Commercial Consumption -->
-            {
-                name: 'Commercial',
-                data: [8.4,	9.2,	8.9,	8.0,	8.9,	9.0,	9.1,	9.5,	8.1,	6.2,	6.8,	5.7,	5.9,	7.1,	6.5,	6.7,	5.0,	5.3,	5.6,	5.8,	6.7,	6.3,	5.2,	6.8,	7.1,	7.6,	7.0,	7.4,	null,	null,	null],
-                marker: {
-                    enabled: false
-                },
-                color: '#910000'
-            }, {
-               name: 'Projected Commercial',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	6.7,	5.0,	5.3,	5.6,	5.0,	4.9,	4.8,	4.7,	4.5,	4.4,	4.3,	4.2,	4.2,	4.1,	4.0,	3.9],
-                marker: {
-                    enabled: false
-                },
-                color: '#910000',
-                dashStyle: 'dash'
-            },
-            <!--- End Commercial Consumption -->
-            <!--- Begin Industrial (Fuel) Consumption -->
-            {
-                name: 'Industrial (Fuel)',
-                data: [5.8,	5.0,	6.7,	6.9,	6.0,	5.2,	5.2,	5.3,	5.2,	5.9,	5.7,	6.8,	6.6,	4.4,	4.2,	4.5,	4.4,	4.3,	3.9,	3.2,	3.6,	3.9,	3.4,	3.6,	3.5,	3.5,	3.4,	3.5,	null,	null,	null],
-                marker: {
-                    enabled: false
-                },
-                color: '#1aadce',
-                visible: false
-            }, {
-                name: 'Projected Industrial (Fuel)',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	4.5,	4.4,	4.3,	4.0,	4.3,	4.3,	4.2,	4.1,	4.0,	3.9,	3.9,	3.8,	3.7,	3.7,	3.6,	3.5],
-                marker: {
-                    enabled: false
-                },
-                color: '#1aadce',
-                visible: false,
-                dashStyle: 'dash'
-            },
-            <!--- End Industrial (Fuel) Consumption -->
+            <!--- End Buildings Consumption -->
            
             <!--- Begin Industrial Processes Consumption -->
             {
                 name: 'Industrial (Processes)',
-                data: [0.7,	0.6,	0.7,	0.8,	0.9,	1.3,	1.6,	1.8,	2.1,	2.3,	2.5,	2.6,	2.7,	2.7,	2.8,	2.8,	2.8,	2.9,	3.1,	3.3,	3.4,	3.6,	3.6,	3.6,	3.7,	3.8,	3.8,	3.8,	null,	null,	null],
-                marker: {
+                data: [0.7,0.6,0.7,0.8,1,1.4,1.6,1.9,2.1,2.4,2.6,2.7,2.8,2.9,2.9,2.9,3,3.1,3.3,3.5,3.7,3.8,3.9,3.9,4,4.1,4.1,4.1,4.1]
+		marker: {
                     enabled: false
                 },
                 color: '#f28f43',
                 visible: false
-            }, {
-                name: 'Projected Industrial (Processes)',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	2.8,	2.9,	2.9,	3.1,	3.3,	3.5,	3.7,	3.8,	4.0,	4.2,	4.4,	4.6,	4.9,	5.1,	5.3,	5.6],
-                marker: {
-                    enabled: false
-                },
-                color: '#f28f43',
-                visible: false,
-                dashStyle: 'dash'
-            },
+            }, 
             <!--- End Industrial Processes Consumption -->
         <!--- Begin Agriculture Consumption -->
             {
                 name: 'Agriculture',
-                data: [0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.4,	0.3,	0.3,	0.3,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.2,	0.2,	null,	null,	null],
-                marker: {
+                data: [0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.4,0.3,0.4,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3]
+		marker: {
                     enabled: false
                 },
                 color: '#35ff64',
                 visible: false
-            }, {
-                name: 'Projected Agriculture',
-                data: [null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	null,	0.3,	0.4,	0.4,	0.3,	0.4,	0.4,	0.4,	0.4,	0.4,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3,	0.3],
-                marker: {
-                    enabled: false
-                },
-                color: '#35ff64',
-                visible: false,
-                dashStyle: 'dash'
-            },
+            }, 
             <!--- End Agriculture Consumption -->
                         
             <!--- Begin Waste Consumption -->
             {
                 name: 'Waste',
-                data: [2.7,	3.0,	2.9,	2.8,	2.8,	2.7,	2.3,	2.0,	1.7,	1.7,	1.1,	0.7,	1.1,	1.6,	1.3,	1.1,	1.0,	0.9,	0.8,	0.9,	0.9,	0.9,	1.0,	0.9,	0.8,	0.8,	0.8,	0.7,	null,	null,	null],
-                visible: false,
+                data: [2.9,3,2.9,2.8,2.8,2.8,2.6,2.4,1.8,1.8,1.3,0.9,1.3,1.8,1.6,1.4,1.4,1.3,1.3,1.3,0.9,0.9,1,0.9,0.8,0.8,0.8,0.8,0.7]
+		visible: false,
                 marker: {
                     enabled: false
                 },
                 color: '#77a1e5'
-            }, {
-                name: 'Projected Waste',
-                data: [{
-                    x: 2005,
-                    y: 1.1
-                }, {
-                    x: 2006,
-                    y: 1.0
-                }, {
-                    x: 2007,
-                    y: 0.9
-                }, {
-                    x: 2008,
-                    y: 0.8
-                }, {
-                    x: 2009,
-                    y: 0.8
-                }, {
-                    x: 2010,
-                    y: 0.8
-                }, {
-                    x: 2011,
-                    y: 0.8
-                }, {
-                    x: 2012,
-                    y: 0.8
-                }, {
-                    x: 2013,
-                    y: 0.8
-                }, {
-                    x: 2014,
-                    y: 0.8
-                }, {
-                    x: 2015,
-                    y: 0.8
-                }, {
-                    x: 2016,
-                    y: 0.8
-                }, {
-                    x: 2017,
-                    y: 0.8
-                }, {
-                    x: 2018,
-                    y: 0.8
-                }, {
-                    x: 2019,
-                    y: 0.8
-                }, {
-                    x: 2020,
-                    y: 0.8
-                }],
-                visible: false,
-                marker: {
-                    enabled: false
-                },
-                color: '#77a1e5',
-                dashStyle: 'dash'
-            }
+            }, 
             <!--- End Waste Consumption -->
             ]
 };
