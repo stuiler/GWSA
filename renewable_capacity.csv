@@ -1,0 +1,71 @@
+type,year,value
+Anaerobic Digester,2013,20.8
+Anaerobic Digester,2014,20.8
+Anaerobic Digester,2015,20.8
+Anaerobic Digester,2016,23.09
+Anaerobic Digester,2017,23.09
+Anaerobic Digester,2018,24.09
+Anaerobic Digester,2019,29.04
+Anaerobic Digester,2020,30.03
+Anaerobic Digester,2021,30.03
+Anaerobic Digester,2022,30.03
+Biomass,2013,1.43
+Biomass,2014,1.43
+Biomass,2015,1.43
+Biomass,2016,1.85
+Biomass,2017,1.85
+Biomass,2018,1.85
+Biomass,2019,1.85
+Biomass,2020,1.85
+Biomass,2021,1.85
+Biomass,2022,1.85
+Hydroelectric,2013,260.35
+Hydroelectric,2014,260.85
+Hydroelectric,2015,260.85
+Hydroelectric,2016,260.85
+Hydroelectric,2017,260.92
+Hydroelectric,2018,260.92
+Hydroelectric,2019,260.92
+Hydroelectric,2020,261.09
+Hydroelectric,2021,261.1
+Hydroelectric,2022,261.33
+Hydrokinetic,2013,0.09
+Hydrokinetic,2014,0.09
+Hydrokinetic,2015,0.09
+Hydrokinetic,2016,0.09
+Hydrokinetic,2017,0.09
+Hydrokinetic,2018,0.09
+Hydrokinetic,2019,0.09
+Hydrokinetic,2020,0.09
+Hydrokinetic,2021,0.09
+Hydrokinetic,2022,0.09
+Landfill Gas,2013,46.12
+Landfill Gas,2014,46.12
+Landfill Gas,2015,46.12
+Landfill Gas,2016,46.12
+Landfill Gas,2017,46.12
+Landfill Gas,2018,46.12
+Landfill Gas,2019,46.12
+Landfill Gas,2020,46.12
+Landfill Gas,2021,46.12
+Landfill Gas,2022,46.12
+Photovoltaic,2013,361.1
+Photovoltaic,2014,597.58
+Photovoltaic,2015,853.68
+Photovoltaic,2016,1188.81
+Photovoltaic,2017,1590.63
+Photovoltaic,2018,1860.13
+Photovoltaic,2019,2107.42
+Photovoltaic,2020,2449.6
+Photovoltaic,2021,2855.63
+Photovoltaic,2022,3154.11
+Wind,2013,103.1
+Wind,2014,107.06
+Wind,2015,107.06
+Wind,2016,115.06
+Wind,2017,112.06
+Wind,2018,113.06
+Wind,2019,113.06
+Wind,2020,113.06
+Wind,2021,113.06
+Wind,2022,113.06

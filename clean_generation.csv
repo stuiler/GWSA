@@ -1,0 +1,41 @@
+type,year,value
+Hydroelectric,2017,9523268
+Hydroelectric,2018,10263533
+Hydroelectric,2019,10530433
+Hydroelectric,2020,10121807
+Hydroelectric,2021,10718595
+Nuclear,2017,9426904
+Nuclear,2018,14192600
+Nuclear,2019,8817895
+Nuclear,2020,3171060
+Nuclear,2021,5970152
+Wind,2017,3674469
+Wind,2018,3697106
+Wind,2019,4311091
+Wind,2020,5115942
+Wind,2021,4612570
+Solar Photovoltaic,2017,2044800
+Solar Photovoltaic,2018,2540414
+Solar Photovoltaic,2019,2838413
+Solar Photovoltaic,2020,3457918
+Solar Photovoltaic,2021,3930784
+Municipal Solid Waste,2017,1641874
+Municipal Solid Waste,2018,1724645
+Municipal Solid Waste,2019,1658275
+Municipal Solid Waste,2020,1630547
+Municipal Solid Waste,2021,1682109
+Landfill Gas,2017,293327
+Landfill Gas,2018,272915
+Landfill Gas,2019,206438
+Landfill Gas,2020,563941
+Landfill Gas,2021,283135
+Biogas and Digester Gas,2017,51811
+Biogas and Digester Gas,2018,65608
+Biogas and Digester Gas,2019,58092
+Biogas and Digester Gas,2020,86985
+Biogas and Digester Gas,2021,74578
+Wood/Biomass,2017,2380
+Wood/Biomass,2018,1421
+Wood/Biomass,2019,1769
+Wood/Biomass,2020,8220
+Wood/Biomass,2021,919
