@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<head>
+  <style>
+    svg text {
+      font-family: arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .chart_area rect:hover {
+      opacity: 1.0;
+    }
+
+    text.hover_type {
+      font-weight: bold;
+    }
+
+    .grid-lines line {
+      stroke: #888;
+      stroke-width: 1px;
+      stroke-dasharray: 5 2;
+      stroke-opacity: 0.1;
+    }
+
+    .legend_box {
+      pointer-events: none;
+    }
+
+    .legend_item:hover {
+      stroke: #333;
+      stroke-width: 1px;
+    }
+
+    text.axis_label {
+      font-family: arial, sans-serif;
+      font-size: 16px;
+      fill: #000;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+
+<div id="container"></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script type="module">
+
+/*
+References:
+https://d3js.org/getting-started
+https://d3js.org/d3-shape/stack
+https://observablehq.com/@d3/stacked-area-chart/2
+https://observablehq.com/@jeantimex/simple-line-chart-with-grid-lines
+https://observablehq.com/@jeantimex/simple-line-chart-with-axis-labels
+*/
+
+// Specify the chart dimensions and margins
+const width = 1200;
+const height = 600;
+const marginTop = 20;
+const marginRight = 300;
+const marginBottom = 100;
+const marginLeft = 100;
+
+// Load the generation data
+const data_all = await d3.csv("https://massgov.github.io/GWSA/renewable_capacity.csv");
+
+// Specify the horizontal and vertical axis labels
+const horizontal_axis_label = "Year";
+const vertical_axis_label = "Renewable Electric Capacity (MW)";
+
+// Specify the maximum value of the vertical axis when all
+// categories are being shown
+const vertical_axis_max = 4000;
+
+/* Create a variable to hold the data to display; initially set
+   this to display the enitre dataset (this will be modified
+   when the user clicks on a specific category) */
+var data = data_all;
+var selected_type = "all";
+
+// Specify the width of the bars
+const bar_width = Math.round((width - marginLeft - marginRight) / 28);
+
+// Create a variable to keep track of which energy type
+// the user's mouse pointer is hovered over (see below)
+var hover_key = "";
+
+// Create a series using d3.stack() that will be used in
+// drawing the stacked rectangles below
+var series = d3.stack()
+    .keys(d3.union(data.map(d => d.type)))
+    .value(([, group], key) => group.get(key).value)
+    .order(d3.stackOrderDescending)
+  (d3.index(data, d => d.year, d => d.type));
+
+// Create the legend entries by using the sort order
+// given within the series created above
+var legend_entries = series.map(d => {
+  var myobj = {};
+  myobj["index"] = d.index;
+  myobj["key"] = d.key;
+  return myobj; });
+legend_entries = legend_entries.sort((a,b) => b.index - a.index);
+
+// Create the color scale using the energy types
+const color = d3.scaleOrdinal()
+    //.domain(series.map(d => d.key))
+    .domain(["Anaerobic Digester",
+             "Biomass",
+             "Hydroelectric",
+             "Hydrokinetic",
+             "Landfill Gas",
+             "Photovoltaic",
+             "Wind"])
+    .range([d3.schemeCategory10[6],
+            d3.schemeCategory10[8],
+            d3.schemeCategory10[0],
+            d3.schemeCategory10[9],
+            d3.schemeCategory10[7],
+            d3.schemeCategory10[1],
+            d3.schemeCategory10[2]]);
+
+// Creating a formatting object that will format
+// generation values to include commas
+const f = d3.format(",");
+
+// Create the SVG container using the dimensions
+// specified above
+const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Add the group for the horizontal grid lines
+var grid_lines = svg.append("g")
+      .attr('class', 'grid-lines');
+
+// Add the group for the horizontal axis
+var horizontal_axis = svg.append("g")
+    .attr("transform", `translate(${bar_width/2},${height - marginBottom})`);
+
+// Add the group for the vertical axis
+var vertical_axis = svg.append("g")
+    .attr("transform", `translate(${marginLeft},0)`);
+
+// Add the group for the legend
+var legend_area = svg.append("g")
+  .attr("class", "legend_area")
+  .attr("transform", `translate(${width-marginRight+50},${height*0.2})`);
+
+// Add the group for the chart itself
+var chart_area = svg.append("g")
+  .attr("class", "chart_area");
+
+/* Create a hover box with a line for the
+   energy type and a line for the generation value */
+var hover = svg.append("g")
+  .attr("class", "hover_area")
+  .attr("transform", "translate(50,50)")
+  .attr("opacity", 0)
+  .style("pointer-events", "none");
+hover.append("rect")
+  .attr("width", 170)
+  .attr("height", 50)
+  .attr("fill", "#eee")
+  .attr("stroke", "black")
+  .attr("rx", 10)
+  .attr("ry", 10);
+hover.append("text")
+  .attr("class", "hover_type")
+  .attr("x", 10)
+  .attr("y", 20)
+  .text("Test");
+hover.append("text")
+  .attr("class", "hover_generation")
+  .attr("x", 10)
+  .attr("y", 40)
+  .text("Test");
+
+// Append the SVG element
+container.append(svg.node());
+
+// Draw the visualization
+draw_chart();
+
+/* FUNCTION: draw_chart()
+   This function draws, or redraws, the stacked bar chart based
+   on user interactivity.
+*/
+function draw_chart() {
+
+  // Create a transition to use when the user changes the
+  // focus of the visualization
+  const t = svg.transition().duration(700);
+
+  // Create the horizontal axis scale
+  const x = d3.scaleLinear()
+      .domain([2012.5, 2022.5])
+      .range([marginLeft, width - marginRight]);
+
+  /* Create the veritcal axis scale, which is zero to the value
+     specified at the top of this file when all categories are
+     presented and zero to the maximum value of the data when
+     one category is presented */
+  var y;
+  if(selected_type == "all") {
+    y = d3.scaleLinear()
+        .domain([0, vertical_axis_max])
+        .range([height - marginBottom, marginTop])
+        .nice();
+  } else {
+    y = d3.scaleLinear()
+        .domain([0, Math.max.apply(null, data.map(d => d.value))])
+        .range([height - marginBottom, marginTop])
+        .nice();
+  }
+
+  // Create the horizontal grid lines
+  grid_lines.selectAll('line')
+    .data(y.ticks())
+    .join('line')
+      .attr('x1', marginLeft)
+      .attr('x2', width - marginRight)
+      .attr('y1', d => y(d))
+      .attr('y2', d => y(d));
+
+  // Create the horizontal axis and the horizontal axis label
+  horizontal_axis.call(d3.axisBottom(x).ticks(10, ""))
+    .append("text")
+      .attr("class", "axis_label")
+      .text(horizontal_axis_label)
+      .attr("x", marginLeft + (width - marginLeft - marginRight) / 2)
+      .attr("y", 50);
+
+  // Create the vertical axis and the vertical axis label
+  vertical_axis.call(d3.axisLeft(y))
+    .append("text")
+      .attr("class", "axis_label")
+      .text(vertical_axis_label)
+      .attr('transform', 'rotate(-90)')
+      .attr("x", -(marginTop + (height - marginTop - marginBottom) / 2))
+      .attr("y", -70);
+
+  // Get the "enter" selection for the legend rectangles
+  var new_legend_elem = legend_area.selectAll("rect")
+    .data(legend_entries).enter();
+
+  /* Append a rectangle for each legend entry, which will be
+     the "background" (white) rectangle behind the entry that
+     contains the clicking functionality */
+  new_legend_elem.append("rect")
+    .attr("class", "legend_item")
+    .attr("x", 0)
+    .attr("y", (d,i) => i*(bar_width+5))
+    .attr("width", 185)
+    .attr("height", bar_width)
+    .attr("fill", "white")
+    .on("click", (e,d) => {
+
+      // Toggle the data depending on whether all categories
+      // are currently shown or only one category is currently shown
+      if(selected_type == d.key) {
+        data = data_all;
+        selected_type = "all";
+      } else {
+        data = data_all.filter(val => val.type == d.key);
+        selected_type = d.key;
+      }
+
+      // Recreate the series
+      series = d3.stack()
+          .keys(d3.union(data.map(d => d.type)))
+          .value(([, group], key) => group.get(key).value)
+          .order(d3.stackOrderDescending)
+        (d3.index(data, d => d.year, d => d.type));
+
+      // Re-draw the visualization
+      draw_chart();
+    });
+
+  // Append another rectangle for each legend entry, which will be
+  // the colored square to the left of the entry text
+  new_legend_elem.append("rect")
+    .attr("class", "legend_box")
+    .attr("x", 2)
+    .attr("y", (d,i) => i*(bar_width+5)+2)
+    .attr("width", bar_width-4)
+    .attr("height", bar_width-4)
+    .attr("fill", d => color(d.key))
+    .attr("opacity", 0.8)
+    .attr("rx", 5);
+
+  // Append a text element for each legend entry, which contains
+  // the text itself for the entry (the text becomes bold when an
+  // entry's associated category is selected by the user)
+  legend_area.selectAll("text")
+    .data(legend_entries)
+    .join("text")
+      .attr("x", bar_width+7)
+      .attr("y", (d,i) => i*(bar_width+5)+(bar_width*0.7))
+      .style("font-weight", d => {
+        if(selected_type == d.key) {
+          return "bolder";
+        } else {
+          return "normal";
+        }
+      })
+      .style("pointer-events", "none")
+      .text(d => d.key);
+
+  // Add the groups and the rectangles for the chart
+  chart_area
+    .selectAll("g")
+    .data(series, d => d.key)
+    .join(
+      /* For the groups being added, set the fill initially to white
+         and then transition to the appropriate category color; in
+         addition, set mouseover behavior that stores the name of the
+         category the user is hovered over (to be used below) */
+      enter =>
+        enter.append("g")
+          .attr("fill", "white")
+          .call(enter => enter.transition(t)
+            .attr("fill", d => color(d.key)))
+          .call(enter => enter
+            .on("mouseover", (e,d) => {
+              hover_key = d.key;
+            }))
+      ,
+      // For the groups being updated, simply return the selection
+      update => update
+      ,
+      // For the groups being removed, simply remove the selection
+      exit => exit.remove()
+    )
+    .selectAll("rect")
+    /* Each rectangle is uniquely identified by the combination of
+       (a) its height (d[1]-d[0]) rounded to two decimal places and
+       (b) its associated year (d.data[0]); this allows D3 to know
+       which bars are which when transitioning */
+    .data(D => D, (d,i) => {
+      return (Math.round((d[1] - d[0])*100)/100) + "_" + d.data[0]; })
+    .join(
+      // Do the following for the rectangles being added
+      enter => {
+
+        // Append the rectangles and transition their widths from
+        // zero to their full widths
+        var new_rects = enter.append("rect")
+          .attr("x", d => x(d.data[0]))
+          .attr("y", d => y(d[1]))
+          .attr("height", d => y(d[0]) - y(d[1]))
+          .call(enter => enter.transition(t)
+            .attr("width", bar_width)
+            .attr("opacity", 0.8)
+          );
+
+        // Specify the mouse functionality
+        new_rects
+          .on("click", (e,d) => {
+
+            // Toggle the data depending on whether all categories
+            // are currently shown or only one category is currently shown
+            if(selected_type == "all") {
+              data = data_all.filter(val => val.type == hover_key);
+              selected_type = hover_key;
+            } else {
+              data = data_all;
+              selected_type = "all";
+            }
+
+            // Recreate the series
+            series = d3.stack()
+                .keys(d3.union(data.map(d => d.type)))
+                .value(([, group], key) => group.get(key).value)
+                .order(d3.stackOrderDescending)
+              (d3.index(data, d => d.year, d => d.type));
+
+            // Re-draw the visualization
+            draw_chart();
+
+          })
+          .on("mousemove", (e,d) => {
+
+            /* Set the energy type and the generation
+               line in the hover box */
+            hover.select(".hover_type").text(hover_key);
+            if(hover_key == "Photovoltaic") {
+              hover.select(".hover_generation").text(d.data[0] + ": " + f(d[1] - d[0]) + " MW AC");
+            } else {
+              hover.select(".hover_generation").text(d.data[0] + ": " + f(d[1] - d[0]) + " MW");
+            }
+
+            /* Retrieve the mouse coordinates and calculate the
+               hover box's x and y coordinates so that the box does not
+               go outside of the svg container */
+            var coords = d3.pointer(e, svg);
+            var box_x = Math.min(coords[0] + 10,
+              svg.attr("width") - hover.select("rect").attr("width") - 10);
+            var box_y = Math.min(coords[1] + 10,
+              svg.attr("height") - hover.select("rect").attr("height") - 10);
+
+            // Set the position of the hover box and make it visible
+            hover
+              .attr("transform", "translate(" + box_x + "," + box_y + ")")
+              .attr("opacity", 0.9);
+
+          })
+          .on("mouseout", (e,d) => {
+
+            /* If the mouse goes outside of the rectangle,
+               make the hover box invisible */
+            hover.attr("opacity", 0);
+
+          });
+
+      },
+      // For the rectangles being updated, smoothly transition
+      // their positions and heights
+      update => {
+        update.transition(t)
+          .attr("x", d => x(d.data[0]))
+          .attr("y", d => y(d[1]))
+          .attr("height", d => y(d[0]) - y(d[1]));
+      },
+      // For the rectangles being removed, simply remove the selection
+      exit => exit.remove()
+    );
+
+}
+
+</script>
